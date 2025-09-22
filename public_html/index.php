@@ -239,6 +239,62 @@ header("Pragma: no-cache");
       box-shadow: 0 10px 20px rgba(2, 13, 33, .06)
     }
 
+    /* Tambahkan di bagian <style> */
+#kategori .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.cat-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff4141ff, #ea1616ff);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: clamp(14px, 1.1vw, 18px);
+  padding: 10px 22px;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(225, 6, 0, .18);
+  transition: transform .08s, background .15s, box-shadow .15s;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  margin: 8px 6px;
+}
+
+.cat-button:hover {
+  background: #e60000;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 24px rgba(183, 5, 0, .22);
+}
+
+/* Untuk container tombol kategori agar center dan rapi */
+#kategori .hero details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+#kategori .hero details > summary {
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#kategori .hero details a.cat-button {
+  margin: 8px 6px;
+}
+
+/* Untuk career track agar tombol tetap center dan wrap */
+.career-track-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 6px;
+}
+
     .cat:hover {
       transform: translateY(-2px);
       box-shadow: 0 18px 34px rgba(2, 13, 33, .12)
@@ -464,104 +520,6 @@ header("Pragma: no-cache");
     .fnav a:hover {
       opacity: 1
     }
-
-    /* jadwal */
-
-    section .schedule {
-      padding: 20px 20px;
-      max-width: 1100px;
-      margin: 30px 5vw 0 5vw;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Tambahkan di bagian CSS */
-    .container {
-      padding-left: 24px;
-      padding-right: 24px;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 900px) {
-      .container {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .schedule {
-        margin-left: 16px;
-        margin-right: 16px;
-      }
-    }
-
-    .month-tabs {
-      display: flex;
-      justify-content: flex-start;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #004080;
-    }
-
-    .tab-btn {
-      background-color: #f1f1f1;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 10px 20px;
-      transition: 0.3s;
-      font-size: 16px;
-      color: #004080;
-      border-radius: 8px 8px 0 0;
-      margin-right: 5px;
-    }
-
-    .tab-btn:hover {
-      background-color: #ddd;
-    }
-
-    .tab-btn.active {
-      background-color: #004080;
-      color: white;
-      border-bottom: 2px solid #004080;
-    }
-
-    .tab-content {
-      display: none;
-      padding-top: 10px;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    .table-responsive {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      font-size: 14px;
-    }
-
-    th {
-      background-color: #004080;
-      color: white;
-      padding: 12px;
-    }
-
-    td {
-      background: #f4faff;
-      border: 1px solid #ddd;
-      padding: 10px;
-    }
   </style>
 </head>
 
@@ -571,19 +529,22 @@ header("Pragma: no-cache");
   <nav class="appbar py-2">
     <div class="container d-flex align-items-center justify-content-between">
       <a class="brand" href="#top">
-        <img src="rayterton-academy-logo-black.png" alt="Rayterton Logo">
+        <img src="rayterton-apps-software-logo.png" alt="Rayterton Logo">
       </a>
       <ul class="nav d-none d-md-flex">
         <li class="nav-item"><a class="nav-link" href="#categories">Kategori</a></li>
         <li class="nav-item"><a class="nav-link" href="#featured">Kelas</a></li>
         <li class="nav-item"><a class="nav-link" href="#schedule">Jadwal</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="#katalog">Katalog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#register">Daftar</a></li>
       </ul>
-      <div class="d-flex align-items-center gap-2">
-        <a class="btn-ghost d-none d-md-inline-block" href="#catalog">Lihat Katalog</a>
-        <a class="btn-cta" href="#register">Daftar Sekarang</a>
-      </div>
+
+      <a href="/" class="logo-link logo-academy-header">
+        <img src="rayterton-academy-logo-black.png" alt="Rayterton Academy Logo" class="logo-academy" style="height:48px;width:auto;">
+      </a>
     </div>
+
   </nav>
 
   <!-- Hero -->
@@ -623,45 +584,55 @@ header("Pragma: no-cache");
   </section>
 
   <!-- Categories -->
-  <section class="section" id="categories">
-    <div class="container">
-      <h2>Kategori Utama</h2>
-      <p class="lead">Pilih jalur yang paling relevan untuk tim Anda. Setiap kategori dapat disesuaikan dengan studi kasus perusahaan.</p>
-      <div class="cat-grid">
-        <article class="cat">
-          <div class="art"><i class="bi bi-laptop"></i></div>
-          <div class="body">
-            <h3>IT</h3>
-            <p>Fullstack, DevOps, Cloud, Data, AI, Cybersecurity, dan banyak lagi.</p>
-            <div class="actions">
-              <a class="btn-cta" href="#featured">Lihat Kelas</a>
-              <a class="btn-ghost" href="#register">Minta Saran</a>
-            </div>
-          </div>
-        </article>
-        <article class="cat">
-          <div class="art"><i class="bi bi-cash-coin"></i></div>
-          <div class="body">
-            <h3>Business, Finance, Economy</h3>
-            <p>Corporate finance, budgeting, analytics, compliance, IFRS, dan operasional.</p>
-            <div class="actions">
-              <a class="btn-cta" href="#featured">Lihat Kelas</a>
-              <a class="btn-ghost" href="#register">Minta Saran</a>
-            </div>
-          </div>
-        </article>
-        <article class="cat">
-          <div class="art"><i class="bi bi-people"></i></div>
-          <div class="body">
-            <h3>Entrepreneurship, Leadership, Management</h3>
-            <p>Strategi bisnis, kepemimpinan, manajemen operasional, dan culture building.</p>
-            <div class="actions">
-              <a class="btn-cta" href="#featured">Lihat Kelas</a>
-              <a class="btn-ghost" href="#register">Minta Saran</a>
-            </div>
-          </div>
-        </article>
-      </div>
+  <section id="kategori">
+    <div class="hero">
+      <p>Silahkan pilih kategori training di bawah ini:</p>
+      <details open>
+        <summary><strong>Kategori Keahlian Umum (Successful Skills)</strong></summary>
+        <a href="/kategori/keahlian-umum/training-it.php" class="cat-button" target="_blank">Information Technology
+          (IT)</a>
+        <a href="/kategori/keahlian-umum/training-bfe.php" class="cat-button" target="_blank">Business, Finance and
+          Economy (BFE)</a>
+        <a href="/kategori/keahlian-umum/training-elm.php" class="cat-button" target="_blank">Entrepreneurship,
+          Leadership and Management (ELM)</a>
+      </details>
+      <details open>
+        <summary><strong>Kategori Sektor Industri (Business Sector)</strong></summary>
+        <a href="/kategori/sektor-industri/training-mn.php" class="cat-button" target="_blank">Manufacturing (MN)</a>
+        <a href="/kategori/sektor-industri/training-rt.php" class="cat-button" target="_blank">Retail (RT)</a>
+        <a href="/kategori/sektor-industri/training-ds.php" class="cat-button" target="_blank">Distribution (DS)</a>
+        <a href="/kategori/sektor-industri/training-bn.php" class="cat-button" target="_blank">Banking (BN)</a>
+        <a href="/kategori/sektor-industri/training-mf.php" class="cat-button" target="_blank">Multifinance (MF)</a>
+        <a href="/kategori/sektor-industri/training-in.php" class="cat-button" target="_blank">Insurance (IN)</a>
+      </details>
+      <details open>
+        <summary><strong>Kategori Karir (Career Track)</strong></summary>
+        <div class="career-track-container">
+          <a href="/kategori/karir/training-cfo.php" class="cat-button" target="_blank">CFO - Financial Leadership</a>
+          <a href="/kategori/karir/training-cto.php" class="cat-button" target="_blank">CTO - Technology Strategy</a>
+          <a href="/kategori/karir/training-coo.php" class="cat-button" target="_blank">COO - Strategic Operational
+            Excellence</a>
+
+          <a href="/kategori/karir/training-cso.php" class="cat-button" target="_blank">CSO - Corporate Strategy and
+            Execution</a>
+          <a href="/kategori/karir/training-dto.php" class="cat-button" target="_blank">Digital Transformation
+            Officer</a>
+
+          <a href="/kategori/karir/training-bics.php" class="cat-button" target="_blank">Business and IT Consulting
+            Skills</a>
+          <a href="/kategori/karir/training-da.php" class="cat-button" target="_blank">Data Analyst - Analytics for
+            Business</a>
+
+          <a href="/kategori/karir/training-rwds.php" class="cat-button" target="_blank">Data Scientist - Real World
+            Data Science</a>
+          <a href="/kategori/karir/training-de.php" class="cat-button" target="_blank">DevOps Engineer - CI/CD and
+            Kubernetes</a>
+          <a href="/kategori/karir/training-cs.php" class="cat-button" target="_blank">Cyber Security Analyst - Threat
+            and Risk Management</a>
+        </div>
+
+      </details>
+
     </div>
   </section>
 
@@ -676,7 +647,7 @@ header("Pragma: no-cache");
         <a class="btn-ghost" id="catalog" href="#register"><i class="bi bi-download me-1"></i> Minta Katalog PDF</a>
       </div>
 
-      <div class="cards">
+      <div class="cards" >
         <article class="cardx">
           <img src="assets/img/React.jpg" alt="Fullstack React Node PostgreSQL">
           <div class="bx">
@@ -687,17 +658,16 @@ header("Pragma: no-cache");
             <div class="actions">
               <a class="btn-cta" href="#register">Daftar</a>
               <a class="btn-ghost" href="./training/it/fullstack-development-using-react-js-node-js-redis-postgresql-it008.php">Detail</a>
-              <a class="btn-cta" href="#">Daftar</a>
             </div>
           </div>
         </article>
 
         <article class="cardx">
-          <img src="assets/img/2.avif" alt="IFRS & Reporting">
+          <img src="assets/img/React.jpg" alt="IFRS & Reporting">
           <div class="bx">
-            <span class="badge-soft">BFE</span>
-            <h4>IFRS Essentials & Financial Reporting</h4>
-            <p>Pemahaman praktis IFRS untuk penyusunan laporan keuangan dan analisis kinerja.</p>
+            <span class="badge-soft">IT</span>
+            <h4>Oracle Apex dan Jasper Report</h4>
+            <p>Kelas Oracle APEX dan Jasper mengajarkan cara membuat aplikasi web modern dengan Oracle APEX serta laporan profesional dengan JasperReports, lengkap dengan integrasi database dan export ke berbagai format.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Beginner</div>
             <div class="actions">
               <a class="btn-cta" href="#register">Daftar</a>
@@ -707,11 +677,89 @@ header("Pragma: no-cache");
         </article>
 
         <article class="cardx">
+          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>Database Relational, SQL dan PL-SQL</h4>
+            <p>Kelas Database Relational, SQL, dan PL/SQL mengajarkan konsep database relasional, penulisan query SQL, serta pemrograman PL/SQL untuk mengelola dan memanipulasi data secara efisien.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>dotNet dan Angular</h4>
+            <p>Kelas .NET dan Angular mengajarkan pembuatan aplikasi web modern dengan backend menggunakan .NET dan frontend interaktif menggunakan Angular, mulai dari desain, pengembangan, hingga integrasi antar sistem.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>Foundation of AI</h4>
+            <p>Kelas Foundation of AI memberikan pemahaman dasar tentang kecerdasan buatan, termasuk konsep machine learning, neural network, dan penerapannya dalam berbagai bidang teknologi modern.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>Cyber Security</h4>
+            <p>Kelas Cyber Security mengajarkan dasar-dasar keamanan siber, termasuk proteksi data, deteksi ancaman, dan praktik terbaik untuk melindungi sistem dan jaringan dari serangan digital.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
           <img src="assets/img/3.avif" alt="Leadership for Managers">
           <div class="bx">
-            <span class="badge-soft">ELM</span>
-            <h4>Strategic Operational Excellence for COO</h4>
-            <p>Kerangka operasional, KPI, dan continuous improvement untuk pemimpin operasional.</p>
+            <span class="badge-soft">BFE</span>
+            <h4>Project Management</h4>
+            <p>Kelas Project Management mengajarkan prinsip, metode, dan alat untuk merencanakan, menjalankan, serta mengawasi proyek agar selesai tepat waktu, sesuai anggaran, dan mencapai tujuan bisnis.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/3.avif" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">BFE</span>
+            <h4>Risk Management</h4>
+            <p>Kelas Risk Management mengajarkan cara mengidentifikasi, menganalisis, dan mengelola risiko agar organisasi dapat mengambil keputusan yang tepat dan meminimalkan potensi kerugian.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/3.avif" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">BFE</span>
+            <h4>Strategic Management</h4>
+            <p>Kelas Strategic Management mengajarkan cara merumuskan, mengimplementasikan, dan mengevaluasi strategi bisnis agar organisasi dapat mencapai tujuan jangka panjang dan tetap kompetitif.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
               <a class="btn-cta" href="#register">Daftar</a>
@@ -1120,6 +1168,22 @@ header("Pragma: no-cache");
   </footer>
 
   <script>
+     const cardsContainer = document.getElementById('cards-container');
+  const allCards = Array.from(cardsContainer.querySelectorAll('.cardx'));
+  const toggleBtn = document.getElementById('toggle-classes');
+
+  // Sembunyikan semua kartu setelah 3 pertama
+  allCards.forEach((card, index) => {
+    if(index > 2) card.style.display = 'none';
+  });
+
+  toggleBtn.addEventListener('click', () => {
+    const isHidden = allCards[3].style.display === 'none';
+    allCards.forEach((card, index) => {
+      if(index > 2) card.style.display = isHidden ? 'block' : 'none';
+    });
+    toggleBtn.textContent = isHidden ? 'Sembunyikan' : 'Lihat Selengkapnya';
+  });
     // Tahun footer
     document.getElementById('y').textContent = new Date().getFullYear();
     // Smooth scroll
