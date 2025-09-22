@@ -235,7 +235,7 @@ header("Pragma: no-cache");
             <p>Membangun aplikasi enterprise lengkap dengan autentikasi, CRUD, caching, dan deployment.</p>
             <div class="meta"><i class="bi bi-clock"></i> 3 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
-              <a class="btn-cta" href="daftar_trainer.php">Daftar</a>
+              <a class="btn-cta" href="#">Daftar</a>
               <a class="btn-ghost" href="#detail-it008">Detail</a>
             </div>
           </div>
@@ -249,7 +249,7 @@ header("Pragma: no-cache");
             <p>Pemahaman praktis IFRS untuk penyusunan laporan keuangan dan analisis kinerja.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Beginner</div>
             <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-cta" href="#">Daftar</a>
               <a class="btn-ghost" href="#detail-bfe">Detail</a>
             </div>
           </div>
@@ -263,7 +263,7 @@ header("Pragma: no-cache");
             <p>Kerangka operasional, KPI, dan continuous improvement untuk pemimpin operasional.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-cta" href="#">Daftar</a>
               <a class="btn-ghost" href="#detail-coo">Detail</a>
             </div>
           </div>
@@ -381,7 +381,14 @@ header("Pragma: no-cache");
                 </div>
                 <div class="col-12">
                   <label class="form-label">Nama Kelas</label>
-                  <input type="text" class="form-control" placeholder="Contoh: Fullstack React Node PostgreSQL">
+                  <select class="form-select">
+                    <option>Fullstack React, Node, Redis & PostgreSQL</option>
+                    <option>IFRS Essentials & Financial Reporting</option>
+                    <option>Strategic Operational Excellence for COO</option>
+                    <option>Data Analytics with Python</option>
+                    <option>Cybersecurity Fundamentals</option>
+                    <option>Lainnya (sebutkan di pesan tambahan)</option>
+                  </select>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Preferensi Jadwal</label>
