@@ -381,7 +381,14 @@ header("Pragma: no-cache");
                 </div>
                 <div class="col-12">
                   <label class="form-label">Nama Kelas</label>
-                  <input type="text" class="form-control" placeholder="Contoh: Fullstack React Node PostgreSQL">
+                  <select class="form-select">
+                    <option>Fullstack React, Node, Redis & PostgreSQL</option>
+                    <option>IFRS Essentials & Financial Reporting</option>
+                    <option>Strategic Operational Excellence for COO</option>
+                    <option>Data Analytics with Python</option>
+                    <option>Cybersecurity Fundamentals</option>
+                    <option>Lainnya (sebutkan di pesan tambahan)</option>
+                  </select>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Preferensi Jadwal</label>
