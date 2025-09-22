@@ -1,0 +1,21 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 458" width="1600" height="458">
+	<title>rayterton-apps-logo-new</title>
+	<style>
+		tspan { white-space:pre } 
+		.t0 { font-size: 72px;fill: #1a8ff5;font-weight: 800;font-family: "Montserrat-ExtraBold", "Montserrat" } 
+		.t1 { font-size: 180px;fill: #000000;font-weight: 800;font-family: "Montserrat-ExtraBold", "Montserrat" } 
+		.t2 { font-size: 180px;fill: #f20703;font-weight: 800;font-family: "Montserrat-ExtraBold", "Montserrat" } 
+	</style>
+	<text id="Enterprise Software Solution" style="transform: matrix(1,0,0,1,87,381)" >
+		<tspan x="0" y="0" class="t0">E</tspan><tspan  y="0" class="t0">n</tspan><tspan  y="0" class="t0">t</tspan><tspan  y="0" class="t0">e</tspan><tspan  y="0" class="t0">r</tspan><tspan  y="0" class="t0">p</tspan><tspan  y="0" class="t0">r</tspan><tspan  y="0" class="t0">i</tspan><tspan  y="0" class="t0">s</tspan><tspan  y="0" class="t0">e</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">S</tspan><tspan  y="0" class="t0">o</tspan><tspan  y="0" class="t0">f</tspan><tspan  y="0" class="t0">t</tspan><tspan  y="0" class="t0">w</tspan><tspan  y="0" class="t0">a</tspan><tspan  y="0" class="t0">r</tspan><tspan  y="0" class="t0">e</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">S</tspan><tspan  y="0" class="t0">o</tspan><tspan  y="0" class="t0">l</tspan><tspan  y="0" class="t0">u</tspan><tspan  y="0" class="t0">t</tspan><tspan  y="0" class="t0">i</tspan><tspan  y="0" class="t0">o</tspan><tspan  y="0" class="t0">n
+</tspan>
+	</text>
+	<text id="Rayterton" style="transform: matrix(1,0,0,1,80,240)" >
+		<tspan x="0" y="0" class="t1">R</tspan><tspan  y="0" class="t1">a</tspan><tspan  y="0" class="t1">y</tspan><tspan  y="0" class="t1">t</tspan><tspan  y="0" class="t1">e</tspan><tspan  y="0" class="t1">r</tspan><tspan  y="0" class="t1">t</tspan><tspan  y="0" class="t1">o</tspan><tspan  y="0" class="t1">n
+</tspan>
+	</text>
+	<text id="Apps" style="transform: matrix(1,0,0,1,1068,240)" >
+		<tspan x="0" y="0" class="t2">A</tspan><tspan  y="0" class="t2">p</tspan><tspan  y="0" class="t2">p</tspan><tspan  y="0" class="t2">s
+</tspan>
+	</text>
+</svg>

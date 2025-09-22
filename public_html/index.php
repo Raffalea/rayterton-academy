@@ -121,8 +121,7 @@ header("Pragma: no-cache");
   <nav class="appbar py-2">
     <div class="container d-flex align-items-center justify-content-between">
       <a class="brand" href="#top">
-        <img src="assets/img/logo-rayterton.png" alt="Rayterton Logo">
-        <span class="title">Rayterton Academy</span>
+        <img src="rayterton-academy-logo-black.png" alt="Rayterton Logo">
       </a>
       <ul class="nav d-none d-md-flex">
         <li class="nav-item"><a class="nav-link" href="#categories">Kategori</a></li>
@@ -236,7 +235,7 @@ header("Pragma: no-cache");
             <p>Membangun aplikasi enterprise lengkap dengan autentikasi, CRUD, caching, dan deployment.</p>
             <div class="meta"><i class="bi bi-clock"></i> 3 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-cta" href="daftar_trainer.php">Daftar</a>
               <a class="btn-ghost" href="#detail-it008">Detail</a>
             </div>
           </div>
