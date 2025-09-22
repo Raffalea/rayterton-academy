@@ -356,7 +356,7 @@ header("Pragma: no-cache");
         <div class="col-lg-6">
           <div class="p-4 bg-white rounded-4 border" style="box-shadow:var(--shadow)">
             <h3 class="mb-2">Daftar atau Minta Jadwal</h3>
-            <form action="../index_regis_form_proxy.php" class="post">
+            <form action="index_regis_form_proxy.php" class="post">
             <p class="text-muted mb-3">Isi formulir ini untuk mendaftar kelas publik atau meminta in-house training.</p>
             <form>
               <div class="row g-3">
