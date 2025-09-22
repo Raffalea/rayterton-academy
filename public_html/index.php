@@ -720,7 +720,7 @@ header("Pragma: no-cache");
         </article>
         <!-- Card 2 -->
         <article class="cardx">
-          <img src="assets/img/React.jpg" alt="IFRS & Reporting">
+          <img src="assets/img/ORACLE.jpg" alt="IFRS & Reporting">
           <div class="bx">
             <span class="badge-soft">IT</span>
             <h4>Oracle Apex dan Jasper Report</h4>
@@ -734,7 +734,7 @@ header("Pragma: no-cache");
         </article>
         <!-- Card 3 -->
         <article class="cardx">
-          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <img src="assets/img/SQLPLSQL.jpg" alt="Leadership for Managers">
           <div class="bx">
             <span class="badge-soft">IT</span>
             <h4>Database Relational, SQL dan PL-SQL</h4>
@@ -751,7 +751,7 @@ header("Pragma: no-cache");
         <div class="cards">
           <!-- Sisanya card, copy dari card 4 dst -->
           <article class="cardx">
-            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <img src="assets/img/dotnet.jpg" alt="dotNet dan Angular">
             <div class="bx">
               <span class="badge-soft">IT</span>
               <h4>dotNet dan Angular</h4>
@@ -1310,7 +1310,7 @@ header("Pragma: no-cache");
   </script>
 
   <script>
-    
+
   </script>
 </body>
 
