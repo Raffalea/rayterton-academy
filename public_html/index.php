@@ -240,60 +240,61 @@ header("Pragma: no-cache");
     }
 
     /* Tambahkan di bagian <style> */
-#kategori .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.cat-button {
-  display: inline-block;
-  background: linear-gradient(135deg, #ff4141ff, #ea1616ff);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: clamp(14px, 1.1vw, 18px);
-  padding: 10px 22px;
-  border-radius: 16px;
-  box-shadow: 0 6px 14px rgba(225, 6, 0, .18);
-  transition: transform .08s, background .15s, box-shadow .15s;
-  white-space: normal;
-  text-align: center;
-  max-width: 100%;
-  margin: 8px 6px;
-}
+    #kategori .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-.cat-button:hover {
-  background: #e60000;
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 12px 24px rgba(183, 5, 0, .22);
-}
+    .cat-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff4141ff, #ea1616ff);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: clamp(14px, 1.1vw, 18px);
+      padding: 10px 22px;
+      border-radius: 16px;
+      box-shadow: 0 6px 14px rgba(225, 6, 0, .18);
+      transition: transform .08s, background .15s, box-shadow .15s;
+      white-space: normal;
+      text-align: center;
+      max-width: 100%;
+      margin: 8px 6px;
+    }
 
-/* Untuk container tombol kategori agar center dan rapi */
-#kategori .hero details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 18px;
-}
+    .cat-button:hover {
+      background: #e60000;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 12px 24px rgba(183, 5, 0, .22);
+    }
 
-#kategori .hero details > summary {
-  margin-bottom: 10px;
-  font-size: 16px;
-  text-align: center;
-}
+    /* Untuk container tombol kategori agar center dan rapi */
+    #kategori .hero details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 18px;
+    }
 
-#kategori .hero details a.cat-button {
-  margin: 8px 6px;
-}
+    #kategori .hero details>summary {
+      margin-bottom: 10px;
+      font-size: 16px;
+      text-align: center;
+    }
 
-/* Untuk career track agar tombol tetap center dan wrap */
-.career-track-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 6px;
-}
+    #kategori .hero details a.cat-button {
+      margin: 8px 6px;
+    }
+
+    /* Untuk career track agar tombol tetap center dan wrap */
+    .career-track-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 6px;
+    }
 
     .cat:hover {
       transform: translateY(-2px);
@@ -343,11 +344,41 @@ header("Pragma: no-cache");
 
     .cardx {
       background: #fff;
+      transition: transform 0.3s cubic-bezier(.4, 2, .3, 1), box-shadow 0.3s;
+      opacity: 1;
       border: 1px solid #e7eef7;
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 12px 24px rgba(2, 13, 33, .08)
     }
+
+    .cardx.hide {
+      opacity: 0;
+      transform: translateY(40px) scale(0.96);
+      pointer-events: none;
+    }
+
+/* Animasi smooth untuk dropdown card kelas populer */
+#more-cards {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(.4, .6, .2, 1), opacity 0.4s cubic-bezier(.4, .6, .2, 1);
+  will-change: max-height, opacity;
+}
+#more-cards.show {
+  max-height: 1200px;
+  opacity: 1;
+}
+#more-cards .cardx {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.5s, transform 0.5s;
+}
+#more-cards.show .cardx {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
     .cardx img {
       width: 100%;
@@ -636,135 +667,53 @@ header("Pragma: no-cache");
     </div>
   </section>
 
-<!-- Featured classes -->
-<section class="section" id="featured">
-  <div class="container">
-    <div class="d-flex align-items-end justify-content-between gap-2 flex-wrap">
-      <div>
-        <h2>Kelas Populer</h2>
-        <p class="lead">Contoh pilihan kelas yang tersedia saat ini. Silakan minta katalog lengkap.</p>
+  <!-- Featured classes -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between gap-2 flex-wrap">
+        <div>
+          <h2>Kelas Populer</h2>
+          <p class="lead">Contoh pilihan kelas yang tersedia saat ini. Silakan minta katalog lengkap.</p>
+        </div>
+        <a class="btn-ghost" id="catalog" href="#register"><i class="bi bi-download me-1"></i> Minta Katalog PDF</a>
       </div>
-      <a class="btn-ghost" id="catalog" href="#register"><i class="bi bi-download me-1"></i> Minta Katalog PDF</a>
-    </div>
 
-    <div class="cards" id="featured-cards">
-      <!-- Card 1 -->
-      <article class="cardx">
-        <img src="assets/img/React.jpg" alt="Fullstack React Node PostgreSQL">
-        <div class="bx">
-          <span class="badge-soft">IT</span>
-          <h4>Fullstack React, Node, Redis & PostgreSQL</h4>
-          <p>Membangun aplikasi enterprise lengkap dengan autentikasi, CRUD, caching, dan deployment.</p>
-          <div class="meta"><i class="bi bi-clock"></i> 3 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-          <div class="actions">
-            <a class="btn-cta" href="#register">Daftar</a>
-            <a class="btn-ghost" href="./training/it/fullstack-development-using-react-js-node-js-redis-postgresql-it008.php">Detail</a>
-          </div>
-        </div>
-      </article>
-      <!-- Card 2 -->
-      <article class="cardx">
-        <img src="assets/img/React.jpg" alt="IFRS & Reporting">
-        <div class="bx">
-          <span class="badge-soft">IT</span>
-          <h4>Oracle Apex dan Jasper Report</h4>
-          <p>Kelas Oracle APEX dan Jasper mengajarkan cara membuat aplikasi web modern dengan Oracle APEX serta laporan profesional dengan JasperReports, lengkap dengan integrasi database dan export ke berbagai format.</p>
-          <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Beginner</div>
-          <div class="actions">
-            <a class="btn-cta" href="#register">Daftar</a>
-            <a class="btn-ghost" href="#detail-bfe">Detail</a>
-          </div>
-        </div>
-      </article>
-      <!-- Card 3 -->
-      <article class="cardx">
-        <img src="assets/img/React.jpg" alt="Leadership for Managers">
-        <div class="bx">
-          <span class="badge-soft">IT</span>
-          <h4>Database Relational, SQL dan PL-SQL</h4>
-          <p>Kelas Database Relational, SQL, dan PL/SQL mengajarkan konsep database relasional, penulisan query SQL, serta pemrograman PL/SQL untuk mengelola dan memanipulasi data secara efisien.</p>
-          <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-          <div class="actions">
-            <a class="btn-cta" href="#register">Daftar</a>
-            <a class="btn-ghost" href="#detail-coo">Detail</a>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div id="more-cards" style="display:none;">
-      <div class="cards">
-        <!-- Sisanya card, copy dari card 4 dst -->
+      <div class="cards" id="featured-cards">
+        <!-- Card 1 -->
         <article class="cardx">
-          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+          <img src="assets/img/React.jpg" alt="Fullstack React Node PostgreSQL">
           <div class="bx">
             <span class="badge-soft">IT</span>
-            <h4>dotNet dan Angular</h4>
-            <p>Kelas .NET dan Angular mengajarkan pembuatan aplikasi web modern dengan backend menggunakan .NET dan frontend interaktif menggunakan Angular, mulai dari desain, pengembangan, hingga integrasi antar sistem.</p>
-            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <h4>Fullstack React, Node, Redis & PostgreSQL</h4>
+            <p>Membangun aplikasi enterprise lengkap dengan autentikasi, CRUD, caching, dan deployment.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 3 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
               <a class="btn-cta" href="#register">Daftar</a>
-              <a class="btn-ghost" href="#detail-coo">Detail</a>
+              <a class="btn-ghost" href="./training/it/fullstack-development-using-react-js-node-js-redis-postgresql-it008.php">Detail</a>
             </div>
           </div>
         </article>
+        <!-- Card 2 -->
         <article class="cardx">
-          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+          <img src="assets/img/React.jpg" alt="IFRS & Reporting">
           <div class="bx">
             <span class="badge-soft">IT</span>
-            <h4>Foundation AI</h4>
-            <p>Kelas Foundation of AI memberikan pemahaman dasar tentang kecerdasan buatan, termasuk konsep machine learning, neural network, dan penerapannya dalam berbagai bidang teknologi modern.</p>
-            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <h4>Oracle Apex dan Jasper Report</h4>
+            <p>Kelas Oracle APEX dan Jasper mengajarkan cara membuat aplikasi web modern dengan Oracle APEX serta laporan profesional dengan JasperReports, lengkap dengan integrasi database dan export ke berbagai format.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Beginner</div>
             <div class="actions">
               <a class="btn-cta" href="#register">Daftar</a>
-              <a class="btn-ghost" href="#detail-coo">Detail</a>
+              <a class="btn-ghost" href="#detail-bfe">Detail</a>
             </div>
           </div>
         </article>
+        <!-- Card 3 -->
         <article class="cardx">
-          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+          <img src="assets/img/React.jpg" alt="Leadership for Managers">
           <div class="bx">
             <span class="badge-soft">IT</span>
-            <h4>Cyber Security</h4>
-            <p>Kelas Cyber Security mengajarkan dasar-dasar keamanan siber, termasuk proteksi data, deteksi ancaman, dan praktik terbaik untuk melindungi sistem dan jaringan dari serangan digital.</p>
-            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-            <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
-              <a class="btn-ghost" href="#detail-coo">Detail</a>
-            </div>
-          </div>
-        </article>
-        <article class="cardx">
-          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
-          <div class="bx">
-            <span class="badge-soft">BFE</span>
-            <h4>Project Management</h4>
-            <p>Kelas Project Management mengajarkan prinsip, metode, dan alat untuk merencanakan, menjalankan, serta mengawasi proyek agar selesai tepat waktu, sesuai anggaran, dan mencapai tujuan bisnis.</p>
-            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-            <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
-              <a class="btn-ghost" href="#detail-coo">Detail</a>
-            </div>
-          </div>
-        </article>
-        <article class="cardx">
-          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
-          <div class="bx">
-            <span class="badge-soft">BFE</span>
-            <h4>Risk Management</h4>
-            <p>Kelas Risk Management mengajarkan cara mengidentifikasi, menganalisis, dan mengelola risiko agar organisasi dapat mengambil keputusan yang tepat dan meminimalkan potensi kerugian.</p>
-            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-            <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
-              <a class="btn-ghost" href="#detail-coo">Detail</a>
-            </div>
-          </div>
-        </article>
-        <article class="cardx">
-          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
-          <div class="bx">
-            <span class="badge-soft">BFE</span>
-            <h4>Strategic Management</h4>
-            <p>Kelas Strategic Management mengajarkan cara merumuskan, mengimplementasikan, dan mengevaluasi strategi bisnis agar organisasi dapat mencapai tujuan jangka panjang dan tetap kompetitif.</p>
+            <h4>Database Relational, SQL dan PL-SQL</h4>
+            <p>Kelas Database Relational, SQL, dan PL/SQL mengajarkan konsep database relasional, penulisan query SQL, serta pemrograman PL/SQL untuk mengelola dan memanipulasi data secara efisien.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
               <a class="btn-cta" href="#register">Daftar</a>
@@ -773,12 +722,94 @@ header("Pragma: no-cache");
           </div>
         </article>
       </div>
+      <div id="more-cards" style="display:none;">
+        <div class="cards">
+          <!-- Sisanya card, copy dari card 4 dst -->
+          <article class="cardx">
+            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <div class="bx">
+              <span class="badge-soft">IT</span>
+              <h4>dotNet dan Angular</h4>
+              <p>Kelas .NET dan Angular mengajarkan pembuatan aplikasi web modern dengan backend menggunakan .NET dan frontend interaktif menggunakan Angular, mulai dari desain, pengembangan, hingga integrasi antar sistem.</p>
+              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+              <div class="actions">
+                <a class="btn-cta" href="#register">Daftar</a>
+                <a class="btn-ghost" href="#detail-coo">Detail</a>
+              </div>
+            </div>
+          </article>
+          <article class="cardx">
+            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <div class="bx">
+              <span class="badge-soft">IT</span>
+              <h4>Foundation AI</h4>
+              <p>Kelas Foundation of AI memberikan pemahaman dasar tentang kecerdasan buatan, termasuk konsep machine learning, neural network, dan penerapannya dalam berbagai bidang teknologi modern.</p>
+              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+              <div class="actions">
+                <a class="btn-cta" href="#register">Daftar</a>
+                <a class="btn-ghost" href="#detail-coo">Detail</a>
+              </div>
+            </div>
+          </article>
+          <article class="cardx">
+            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <div class="bx">
+              <span class="badge-soft">IT</span>
+              <h4>Cyber Security</h4>
+              <p>Kelas Cyber Security mengajarkan dasar-dasar keamanan siber, termasuk proteksi data, deteksi ancaman, dan praktik terbaik untuk melindungi sistem dan jaringan dari serangan digital.</p>
+              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+              <div class="actions">
+                <a class="btn-cta" href="#register">Daftar</a>
+                <a class="btn-ghost" href="#detail-coo">Detail</a>
+              </div>
+            </div>
+          </article>
+          <article class="cardx">
+            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <div class="bx">
+              <span class="badge-soft">BFE</span>
+              <h4>Project Management</h4>
+              <p>Kelas Project Management mengajarkan prinsip, metode, dan alat untuk merencanakan, menjalankan, serta mengawasi proyek agar selesai tepat waktu, sesuai anggaran, dan mencapai tujuan bisnis.</p>
+              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+              <div class="actions">
+                <a class="btn-cta" href="#register">Daftar</a>
+                <a class="btn-ghost" href="#detail-coo">Detail</a>
+              </div>
+            </div>
+          </article>
+          <article class="cardx">
+            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <div class="bx">
+              <span class="badge-soft">BFE</span>
+              <h4>Risk Management</h4>
+              <p>Kelas Risk Management mengajarkan cara mengidentifikasi, menganalisis, dan mengelola risiko agar organisasi dapat mengambil keputusan yang tepat dan meminimalkan potensi kerugian.</p>
+              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+              <div class="actions">
+                <a class="btn-cta" href="#register">Daftar</a>
+                <a class="btn-ghost" href="#detail-coo">Detail</a>
+              </div>
+            </div>
+          </article>
+          <article class="cardx">
+            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <div class="bx">
+              <span class="badge-soft">BFE</span>
+              <h4>Strategic Management</h4>
+              <p>Kelas Strategic Management mengajarkan cara merumuskan, mengimplementasikan, dan mengevaluasi strategi bisnis agar organisasi dapat mencapai tujuan jangka panjang dan tetap kompetitif.</p>
+              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+              <div class="actions">
+                <a class="btn-cta" href="#register">Daftar</a>
+                <a class="btn-ghost" href="#detail-coo">Detail</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
-  </div>
-      <div class="text-center mt-3">
+    <div class="text-center mt-3">
       <button class="btn-cta" id="show-more-cards" onclick="toggleCards()">Tampilkan Kelas Lainnya</button>
     </div>
-</section>
+  </section>
 
 
   <!-- Schedule -->
@@ -1179,17 +1210,37 @@ header("Pragma: no-cache");
 
   <script>
     const cardsContainer = document.getElementById('cards-container');
+    // Tambahkan/ubah script toggleCards agar ada animasi
     function toggleCards() {
-  var more = document.getElementById('more-cards');
-  var btn = document.getElementById('show-more-cards');
-  if (more.style.display === 'none') {
-    more.style.display = 'block';
-    btn.textContent = 'Sembunyikan Kelas Lainnya';
-  } else {
-    more.style.display = 'none';
-    btn.textContent = 'Tampilkan Kelas Lainnya';
-  }
-}
+      var more = document.getElementById('more-cards');
+      var btn = document.getElementById('show-more-cards');
+      var cards = more.querySelectorAll('.cardx');
+      if (!more.classList.contains('show')) {
+        more.style.display = 'block';
+        setTimeout(() => {
+          more.classList.add('show');
+          cards.forEach((card, i) => {
+            card.classList.remove('hide');
+            card.style.transitionDelay = (i * 80) + 'ms';
+          });
+        }, 10);
+        btn.textContent = 'Sembunyikan Kelas Lainnya';
+      } else {
+        more.classList.remove('show');
+        cards.forEach((card, i) => {
+          card.classList.add('hide');
+          card.style.transitionDelay = (i * 50) + 'ms';
+        });
+        setTimeout(() => {
+          more.style.display = 'none';
+        }, 500); // tunggu animasi selesai
+        btn.textContent = 'Tampilkan Kelas Lainnya';
+      }
+    }
+    // Inisialisasi cardx di dropdown agar hidden saat awal
+    document.querySelectorAll('#more-cards .cardx').forEach(card => card.classList.add('hide'));
+    // Inisialisasi cardx di dropdown agar hidden saat awal
+    document.querySelectorAll('#more-cards .cardx').forEach(card => card.classList.add('hide'));
     // Tahun footer
     document.getElementById('y').textContent = new Date().getFullYear();
     // Smooth scroll
