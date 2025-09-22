@@ -343,7 +343,7 @@ header("Pragma: no-cache");
           </ul>
         </div>
         <div class="col-lg-6">
-          <img src="assets/img/illustrations/academy-team.png" alt="Rayterton Academy" class="img-fluid rounded-4 shadow">
+          <img src="assets/img/academy.png" alt="Rayterton Academy" class="img-fluid rounded-4 shadow">
         </div>
       </div>
     </div>
@@ -437,8 +437,7 @@ header("Pragma: no-cache");
       <div class="row g-4">
         <div class="col-lg-5">
           <div class="fbrand">
-            <img src="assets/img/logo-rayterton.png" alt="Rayterton Logo">
-            <strong>Rayterton Academy</strong>
+            <img src="rayterton-academy-logo.png" alt="Rayterton Logo">
           </div>
           <p class="mt-2">Bagian dari Rayterton Apps Software. Solusi pelatihan yang bisa disesuaikan untuk mendukung transformasi digital organisasi Anda.</p>
         </div>
