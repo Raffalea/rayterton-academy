@@ -636,61 +636,66 @@ header("Pragma: no-cache");
     </div>
   </section>
 
-  <!-- Featured classes -->
-  <section class="section" id="featured">
-    <div class="container">
-      <div class="d-flex align-items-end justify-content-between gap-2 flex-wrap">
-        <div>
-          <h2>Kelas Populer</h2>
-          <p class="lead">Contoh pilihan kelas yang tersedia saat ini. Silakan minta katalog lengkap.</p>
-        </div>
-        <a class="btn-ghost" id="catalog" href="#register"><i class="bi bi-download me-1"></i> Minta Katalog PDF</a>
+<!-- Featured classes -->
+<section class="section" id="featured">
+  <div class="container">
+    <div class="d-flex align-items-end justify-content-between gap-2 flex-wrap">
+      <div>
+        <h2>Kelas Populer</h2>
+        <p class="lead">Contoh pilihan kelas yang tersedia saat ini. Silakan minta katalog lengkap.</p>
       </div>
+      <a class="btn-ghost" id="catalog" href="#register"><i class="bi bi-download me-1"></i> Minta Katalog PDF</a>
+    </div>
 
-      <div class="cards" >
-        <article class="cardx">
-          <img src="assets/img/React.jpg" alt="Fullstack React Node PostgreSQL">
-          <div class="bx">
-            <span class="badge-soft">IT</span>
-            <h4>Fullstack React, Node, Redis & PostgreSQL</h4>
-            <p>Membangun aplikasi enterprise lengkap dengan autentikasi, CRUD, caching, dan deployment.</p>
-            <div class="meta"><i class="bi bi-clock"></i> 3 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-            <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
-              <a class="btn-ghost" href="./training/it/fullstack-development-using-react-js-node-js-redis-postgresql-it008.php">Detail</a>
-            </div>
+    <div class="cards" id="featured-cards">
+      <!-- Card 1 -->
+      <article class="cardx">
+        <img src="assets/img/React.jpg" alt="Fullstack React Node PostgreSQL">
+        <div class="bx">
+          <span class="badge-soft">IT</span>
+          <h4>Fullstack React, Node, Redis & PostgreSQL</h4>
+          <p>Membangun aplikasi enterprise lengkap dengan autentikasi, CRUD, caching, dan deployment.</p>
+          <div class="meta"><i class="bi bi-clock"></i> 3 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+          <div class="actions">
+            <a class="btn-cta" href="#register">Daftar</a>
+            <a class="btn-ghost" href="./training/it/fullstack-development-using-react-js-node-js-redis-postgresql-it008.php">Detail</a>
           </div>
-        </article>
-
-        <article class="cardx">
-          <img src="assets/img/React.jpg" alt="IFRS & Reporting">
-          <div class="bx">
-            <span class="badge-soft">IT</span>
-            <h4>Oracle Apex dan Jasper Report</h4>
-            <p>Kelas Oracle APEX dan Jasper mengajarkan cara membuat aplikasi web modern dengan Oracle APEX serta laporan profesional dengan JasperReports, lengkap dengan integrasi database dan export ke berbagai format.</p>
-            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Beginner</div>
-            <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
-              <a class="btn-ghost" href="#detail-bfe">Detail</a>
-            </div>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="cardx">
+        <img src="assets/img/React.jpg" alt="IFRS & Reporting">
+        <div class="bx">
+          <span class="badge-soft">IT</span>
+          <h4>Oracle Apex dan Jasper Report</h4>
+          <p>Kelas Oracle APEX dan Jasper mengajarkan cara membuat aplikasi web modern dengan Oracle APEX serta laporan profesional dengan JasperReports, lengkap dengan integrasi database dan export ke berbagai format.</p>
+          <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Beginner</div>
+          <div class="actions">
+            <a class="btn-cta" href="#register">Daftar</a>
+            <a class="btn-ghost" href="#detail-bfe">Detail</a>
           </div>
-        </article>
-
-        <article class="cardx">
-          <img src="assets/img/React.jpg" alt="Leadership for Managers">
-          <div class="bx">
-            <span class="badge-soft">IT</span>
-            <h4>Database Relational, SQL dan PL-SQL</h4>
-            <p>Kelas Database Relational, SQL, dan PL/SQL mengajarkan konsep database relasional, penulisan query SQL, serta pemrograman PL/SQL untuk mengelola dan memanipulasi data secara efisien.</p>
-            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-            <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
-              <a class="btn-ghost" href="#detail-coo">Detail</a>
-            </div>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="cardx">
+        <img src="assets/img/React.jpg" alt="Leadership for Managers">
+        <div class="bx">
+          <span class="badge-soft">IT</span>
+          <h4>Database Relational, SQL dan PL-SQL</h4>
+          <p>Kelas Database Relational, SQL, dan PL/SQL mengajarkan konsep database relasional, penulisan query SQL, serta pemrograman PL/SQL untuk mengelola dan memanipulasi data secara efisien.</p>
+          <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+          <div class="actions">
+            <a class="btn-cta" href="#register">Daftar</a>
+            <a class="btn-ghost" href="#detail-coo">Detail</a>
           </div>
-        </article>
+        </div>
+      </article>
+    </div>
+    <div id="more-cards" style="display:none;">
+      <div class="cards">
+        <!-- Sisanya card, copy dari card 4 dst -->
         <article class="cardx">
-          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
           <div class="bx">
             <span class="badge-soft">IT</span>
             <h4>dotNet dan Angular</h4>
@@ -703,10 +708,10 @@ header("Pragma: no-cache");
           </div>
         </article>
         <article class="cardx">
-          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
           <div class="bx">
             <span class="badge-soft">IT</span>
-            <h4>Foundation of AI</h4>
+            <h4>Foundation AI</h4>
             <p>Kelas Foundation of AI memberikan pemahaman dasar tentang kecerdasan buatan, termasuk konsep machine learning, neural network, dan penerapannya dalam berbagai bidang teknologi modern.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
@@ -716,7 +721,7 @@ header("Pragma: no-cache");
           </div>
         </article>
         <article class="cardx">
-          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
           <div class="bx">
             <span class="badge-soft">IT</span>
             <h4>Cyber Security</h4>
@@ -729,7 +734,7 @@ header("Pragma: no-cache");
           </div>
         </article>
         <article class="cardx">
-          <img src="assets/img/3.avif" alt="Leadership for Managers">
+          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
           <div class="bx">
             <span class="badge-soft">BFE</span>
             <h4>Project Management</h4>
@@ -742,7 +747,7 @@ header("Pragma: no-cache");
           </div>
         </article>
         <article class="cardx">
-          <img src="assets/img/3.avif" alt="Leadership for Managers">
+          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
           <div class="bx">
             <span class="badge-soft">BFE</span>
             <h4>Risk Management</h4>
@@ -755,7 +760,7 @@ header("Pragma: no-cache");
           </div>
         </article>
         <article class="cardx">
-          <img src="assets/img/3.avif" alt="Leadership for Managers">
+          <img src="assets/img/React.jpg" alt="dotNet dan Angular">
           <div class="bx">
             <span class="badge-soft">BFE</span>
             <h4>Strategic Management</h4>
@@ -769,7 +774,12 @@ header("Pragma: no-cache");
         </article>
       </div>
     </div>
-  </section>
+  </div>
+      <div class="text-center mt-3">
+      <button class="btn-cta" id="show-more-cards" onclick="toggleCards()">Tampilkan Kelas Lainnya</button>
+    </div>
+</section>
+
 
   <!-- Schedule -->
   <!-- <section class="section schedule" id="schedule">
@@ -1169,6 +1179,17 @@ header("Pragma: no-cache");
 
   <script>
     const cardsContainer = document.getElementById('cards-container');
+    function toggleCards() {
+  var more = document.getElementById('more-cards');
+  var btn = document.getElementById('show-more-cards');
+  if (more.style.display === 'none') {
+    more.style.display = 'block';
+    btn.textContent = 'Sembunyikan Kelas Lainnya';
+  } else {
+    more.style.display = 'none';
+    btn.textContent = 'Tampilkan Kelas Lainnya';
+  }
+}
     // Tahun footer
     document.getElementById('y').textContent = new Date().getFullYear();
     // Smooth scroll
