@@ -235,7 +235,7 @@ header("Pragma: no-cache");
             <p>Membangun aplikasi enterprise lengkap dengan autentikasi, CRUD, caching, dan deployment.</p>
             <div class="meta"><i class="bi bi-clock"></i> 3 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
-              <a class="btn-cta" href="daftar_trainer.php">Daftar</a>
+              <a class="btn-cta" href="#">Daftar</a>
               <a class="btn-ghost" href="#detail-it008">Detail</a>
             </div>
           </div>
@@ -249,7 +249,7 @@ header("Pragma: no-cache");
             <p>Pemahaman praktis IFRS untuk penyusunan laporan keuangan dan analisis kinerja.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Beginner</div>
             <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-cta" href="#">Daftar</a>
               <a class="btn-ghost" href="#detail-bfe">Detail</a>
             </div>
           </div>
@@ -263,7 +263,7 @@ header("Pragma: no-cache");
             <p>Kerangka operasional, KPI, dan continuous improvement untuk pemimpin operasional.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
-              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-cta" href="#">Daftar</a>
               <a class="btn-ghost" href="#detail-coo">Detail</a>
             </div>
           </div>
