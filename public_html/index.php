@@ -972,22 +972,7 @@ header("Pragma: no-cache");
   </footer>
 
   <script>
-     const cardsContainer = document.getElementById('cards-container');
-  const allCards = Array.from(cardsContainer.querySelectorAll('.cardx'));
-  const toggleBtn = document.getElementById('toggle-classes');
-
-  // Sembunyikan semua kartu setelah 3 pertama
-  allCards.forEach((card, index) => {
-    if(index > 2) card.style.display = 'none';
-  });
-
-  toggleBtn.addEventListener('click', () => {
-    const isHidden = allCards[3].style.display === 'none';
-    allCards.forEach((card, index) => {
-      if(index > 2) card.style.display = isHidden ? 'block' : 'none';
-    });
-    toggleBtn.textContent = isHidden ? 'Sembunyikan' : 'Lihat Selengkapnya';
-  });
+    const cardsContainer = document.getElementById('cards-container');
     // Tahun footer
     document.getElementById('y').textContent = new Date().getFullYear();
     // Smooth scroll
