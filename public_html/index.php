@@ -228,7 +228,7 @@ header("Pragma: no-cache");
 
       <div class="cards">
         <article class="cardx">
-          <img src="assets/img/classes/react-node.jpg" alt="Fullstack React Node PostgreSQL">
+          <img src="assets/img/React.jpg" alt="Fullstack React Node PostgreSQL">
           <div class="bx">
             <span class="badge-soft">IT</span>
             <h4>Fullstack React, Node, Redis & PostgreSQL</h4>
@@ -242,7 +242,7 @@ header("Pragma: no-cache");
         </article>
 
         <article class="cardx">
-          <img src="assets/img/classes/ifrs.jpg" alt="IFRS & Reporting">
+          <img src="assets/img/2.avif" alt="IFRS & Reporting">
           <div class="bx">
             <span class="badge-soft">BFE</span>
             <h4>IFRS Essentials & Financial Reporting</h4>
@@ -256,7 +256,7 @@ header("Pragma: no-cache");
         </article>
 
         <article class="cardx">
-          <img src="assets/img/classes/leadership.jpg" alt="Leadership for Managers">
+          <img src="assets/img/3.avif" alt="Leadership for Managers">
           <div class="bx">
             <span class="badge-soft">ELM</span>
             <h4>Strategic Operational Excellence for COO</h4>
