@@ -15,13 +15,13 @@ header("Pragma: no-cache");
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     :root{
-      --brand:#00b4cc;
-      --brand-dark:#0096ab;
-      --ink:#0f172a;
-      --muted:#667085;
-      --bg:#f5f8fb;
-      --card:#ffffff;
-      --accent:#004080;
+      --brand: #00b4cc;
+      --brand-dark: #0096ab;
+      --ink: #0f172a;
+      --muted: #667085;
+      --bg: #f5f8fb;
+      --card: #ffffff;
+      --accent: #004080;
       --radius:18px;
       --shadow:0 14px 30px rgba(2,13,33,.12);
     }
@@ -236,7 +236,7 @@ header("Pragma: no-cache");
             <div class="meta"><i class="bi bi-clock"></i> 3 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
               <a class="btn-cta" href="#">Daftar</a>
-              <a class="btn-ghost" href="#detail-it008">Detail</a>
+              <a class="btn-ghost" href="./training/it/fullstack-development-using-react-js-node-js-redis-postgresql-it008.php">Detail</a>
             </div>
           </div>
         </article>
