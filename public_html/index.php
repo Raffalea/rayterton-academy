@@ -647,7 +647,7 @@ header("Pragma: no-cache");
         <a class="btn-ghost" id="catalog" href="#register"><i class="bi bi-download me-1"></i> Minta Katalog PDF</a>
       </div>
 
-      <div class="cards">
+      <div class="cards" >
         <article class="cardx">
           <img src="assets/img/React.jpg" alt="Fullstack React Node PostgreSQL">
           <div class="bx">
@@ -658,17 +658,16 @@ header("Pragma: no-cache");
             <div class="actions">
               <a class="btn-cta" href="#register">Daftar</a>
               <a class="btn-ghost" href="./training/it/fullstack-development-using-react-js-node-js-redis-postgresql-it008.php">Detail</a>
-              <a class="btn-cta" href="#">Daftar</a>
             </div>
           </div>
         </article>
 
         <article class="cardx">
-          <img src="assets/img/2.avif" alt="IFRS & Reporting">
+          <img src="assets/img/React.jpg" alt="IFRS & Reporting">
           <div class="bx">
-            <span class="badge-soft">BFE</span>
-            <h4>IFRS Essentials & Financial Reporting</h4>
-            <p>Pemahaman praktis IFRS untuk penyusunan laporan keuangan dan analisis kinerja.</p>
+            <span class="badge-soft">IT</span>
+            <h4>Oracle Apex dan Jasper Report</h4>
+            <p>Kelas Oracle APEX dan Jasper mengajarkan cara membuat aplikasi web modern dengan Oracle APEX serta laporan profesional dengan JasperReports, lengkap dengan integrasi database dan export ke berbagai format.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Beginner</div>
             <div class="actions">
               <a class="btn-cta" href="#register">Daftar</a>
@@ -678,11 +677,89 @@ header("Pragma: no-cache");
         </article>
 
         <article class="cardx">
+          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>Database Relational, SQL dan PL-SQL</h4>
+            <p>Kelas Database Relational, SQL, dan PL/SQL mengajarkan konsep database relasional, penulisan query SQL, serta pemrograman PL/SQL untuk mengelola dan memanipulasi data secara efisien.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>dotNet dan Angular</h4>
+            <p>Kelas .NET dan Angular mengajarkan pembuatan aplikasi web modern dengan backend menggunakan .NET dan frontend interaktif menggunakan Angular, mulai dari desain, pengembangan, hingga integrasi antar sistem.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>Foundation of AI</h4>
+            <p>Kelas Foundation of AI memberikan pemahaman dasar tentang kecerdasan buatan, termasuk konsep machine learning, neural network, dan penerapannya dalam berbagai bidang teknologi modern.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/React.jpg" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>Cyber Security</h4>
+            <p>Kelas Cyber Security mengajarkan dasar-dasar keamanan siber, termasuk proteksi data, deteksi ancaman, dan praktik terbaik untuk melindungi sistem dan jaringan dari serangan digital.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
           <img src="assets/img/3.avif" alt="Leadership for Managers">
           <div class="bx">
-            <span class="badge-soft">ELM</span>
-            <h4>Strategic Operational Excellence for COO</h4>
-            <p>Kerangka operasional, KPI, dan continuous improvement untuk pemimpin operasional.</p>
+            <span class="badge-soft">BFE</span>
+            <h4>Project Management</h4>
+            <p>Kelas Project Management mengajarkan prinsip, metode, dan alat untuk merencanakan, menjalankan, serta mengawasi proyek agar selesai tepat waktu, sesuai anggaran, dan mencapai tujuan bisnis.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/3.avif" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">BFE</span>
+            <h4>Risk Management</h4>
+            <p>Kelas Risk Management mengajarkan cara mengidentifikasi, menganalisis, dan mengelola risiko agar organisasi dapat mengambil keputusan yang tepat dan meminimalkan potensi kerugian.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx">
+          <img src="assets/img/3.avif" alt="Leadership for Managers">
+          <div class="bx">
+            <span class="badge-soft">BFE</span>
+            <h4>Strategic Management</h4>
+            <p>Kelas Strategic Management mengajarkan cara merumuskan, mengimplementasikan, dan mengevaluasi strategi bisnis agar organisasi dapat mencapai tujuan jangka panjang dan tetap kompetitif.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
               <a class="btn-cta" href="#register">Daftar</a>
@@ -895,6 +972,22 @@ header("Pragma: no-cache");
   </footer>
 
   <script>
+     const cardsContainer = document.getElementById('cards-container');
+  const allCards = Array.from(cardsContainer.querySelectorAll('.cardx'));
+  const toggleBtn = document.getElementById('toggle-classes');
+
+  // Sembunyikan semua kartu setelah 3 pertama
+  allCards.forEach((card, index) => {
+    if(index > 2) card.style.display = 'none';
+  });
+
+  toggleBtn.addEventListener('click', () => {
+    const isHidden = allCards[3].style.display === 'none';
+    allCards.forEach((card, index) => {
+      if(index > 2) card.style.display = isHidden ? 'block' : 'none';
+    });
+    toggleBtn.textContent = isHidden ? 'Sembunyikan' : 'Lihat Selengkapnya';
+  });
     // Tahun footer
     document.getElementById('y').textContent = new Date().getFullYear();
     // Smooth scroll
