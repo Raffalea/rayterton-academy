@@ -235,8 +235,9 @@ header("Pragma: no-cache");
             <p>Membangun aplikasi enterprise lengkap dengan autentikasi, CRUD, caching, dan deployment.</p>
             <div class="meta"><i class="bi bi-clock"></i> 3 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
-              <a class="btn-cta" href="#">Daftar</a>
+              <a class="btn-cta" href="#register">Daftar</a>
               <a class="btn-ghost" href="./training/it/fullstack-development-using-react-js-node-js-redis-postgresql-it008.php">Detail</a>
+              <a class="btn-cta" href="#">Daftar</a>
             </div>
           </div>
         </article>
@@ -249,7 +250,7 @@ header("Pragma: no-cache");
             <p>Pemahaman praktis IFRS untuk penyusunan laporan keuangan dan analisis kinerja.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Beginner</div>
             <div class="actions">
-              <a class="btn-cta" href="#">Daftar</a>
+              <a class="btn-cta" href="#register">Daftar</a>
               <a class="btn-ghost" href="#detail-bfe">Detail</a>
             </div>
           </div>
@@ -263,7 +264,7 @@ header("Pragma: no-cache");
             <p>Kerangka operasional, KPI, dan continuous improvement untuk pemimpin operasional.</p>
             <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
             <div class="actions">
-              <a class="btn-cta" href="#">Daftar</a>
+              <a class="btn-cta" href="#register">Daftar</a>
               <a class="btn-ghost" href="#detail-coo">Detail</a>
             </div>
           </div>
@@ -356,6 +357,7 @@ header("Pragma: no-cache");
         <div class="col-lg-6">
           <div class="p-4 bg-white rounded-4 border" style="box-shadow:var(--shadow)">
             <h3 class="mb-2">Daftar atau Minta Jadwal</h3>
+            <form action="index_regis_form_proxy.php" class="post">
             <p class="text-muted mb-3">Isi formulir ini untuk mendaftar kelas publik atau meminta in-house training.</p>
             <form>
               <div class="row g-3">
@@ -411,6 +413,7 @@ header("Pragma: no-cache");
                 </div>
               </div>
             </form>
+          </form>
           </div>
         </div>
 
