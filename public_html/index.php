@@ -239,6 +239,62 @@ header("Pragma: no-cache");
       box-shadow: 0 10px 20px rgba(2, 13, 33, .06)
     }
 
+    /* Tambahkan di bagian <style> */
+#kategori .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.cat-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff4141ff, #ea1616ff);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: clamp(14px, 1.1vw, 18px);
+  padding: 10px 22px;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(225, 6, 0, .18);
+  transition: transform .08s, background .15s, box-shadow .15s;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  margin: 8px 6px;
+}
+
+.cat-button:hover {
+  background: #e60000;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 24px rgba(183, 5, 0, .22);
+}
+
+/* Untuk container tombol kategori agar center dan rapi */
+#kategori .hero details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+#kategori .hero details > summary {
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#kategori .hero details a.cat-button {
+  margin: 8px 6px;
+}
+
+/* Untuk career track agar tombol tetap center dan wrap */
+.career-track-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 6px;
+}
+
     .cat:hover {
       transform: translateY(-2px);
       box-shadow: 0 18px 34px rgba(2, 13, 33, .12)
@@ -528,45 +584,55 @@ header("Pragma: no-cache");
   </section>
 
   <!-- Categories -->
-  <section class="section" id="categories">
-    <div class="container">
-      <h2>Kategori Utama</h2>
-      <p class="lead">Pilih jalur yang paling relevan untuk tim Anda. Setiap kategori dapat disesuaikan dengan studi kasus perusahaan.</p>
-      <div class="cat-grid">
-        <article class="cat">
-          <div class="art"><i class="bi bi-laptop"></i></div>
-          <div class="body">
-            <h3>IT</h3>
-            <p>Fullstack, DevOps, Cloud, Data, AI, Cybersecurity, dan banyak lagi.</p>
-            <div class="actions">
-              <a class="btn-cta" href="#featured">Lihat Kelas</a>
-              <a class="btn-ghost" href="#register">Minta Saran</a>
-            </div>
-          </div>
-        </article>
-        <article class="cat">
-          <div class="art"><i class="bi bi-cash-coin"></i></div>
-          <div class="body">
-            <h3>Business, Finance, Economy</h3>
-            <p>Corporate finance, budgeting, analytics, compliance, IFRS, dan operasional.</p>
-            <div class="actions">
-              <a class="btn-cta" href="#featured">Lihat Kelas</a>
-              <a class="btn-ghost" href="#register">Minta Saran</a>
-            </div>
-          </div>
-        </article>
-        <article class="cat">
-          <div class="art"><i class="bi bi-people"></i></div>
-          <div class="body">
-            <h3>Entrepreneurship, Leadership, Management</h3>
-            <p>Strategi bisnis, kepemimpinan, manajemen operasional, dan culture building.</p>
-            <div class="actions">
-              <a class="btn-cta" href="#featured">Lihat Kelas</a>
-              <a class="btn-ghost" href="#register">Minta Saran</a>
-            </div>
-          </div>
-        </article>
-      </div>
+  <section id="kategori">
+    <div class="hero">
+      <p>Silahkan pilih kategori training di bawah ini:</p>
+      <details open>
+        <summary><strong>Kategori Keahlian Umum (Successful Skills)</strong></summary>
+        <a href="/kategori/keahlian-umum/training-it.php" class="cat-button" target="_blank">Information Technology
+          (IT)</a>
+        <a href="/kategori/keahlian-umum/training-bfe.php" class="cat-button" target="_blank">Business, Finance and
+          Economy (BFE)</a>
+        <a href="/kategori/keahlian-umum/training-elm.php" class="cat-button" target="_blank">Entrepreneurship,
+          Leadership and Management (ELM)</a>
+      </details>
+      <details open>
+        <summary><strong>Kategori Sektor Industri (Business Sector)</strong></summary>
+        <a href="/kategori/sektor-industri/training-mn.php" class="cat-button" target="_blank">Manufacturing (MN)</a>
+        <a href="/kategori/sektor-industri/training-rt.php" class="cat-button" target="_blank">Retail (RT)</a>
+        <a href="/kategori/sektor-industri/training-ds.php" class="cat-button" target="_blank">Distribution (DS)</a>
+        <a href="/kategori/sektor-industri/training-bn.php" class="cat-button" target="_blank">Banking (BN)</a>
+        <a href="/kategori/sektor-industri/training-mf.php" class="cat-button" target="_blank">Multifinance (MF)</a>
+        <a href="/kategori/sektor-industri/training-in.php" class="cat-button" target="_blank">Insurance (IN)</a>
+      </details>
+      <details open>
+        <summary><strong>Kategori Karir (Career Track)</strong></summary>
+        <div class="career-track-container">
+          <a href="/kategori/karir/training-cfo.php" class="cat-button" target="_blank">CFO - Financial Leadership</a>
+          <a href="/kategori/karir/training-cto.php" class="cat-button" target="_blank">CTO - Technology Strategy</a>
+          <a href="/kategori/karir/training-coo.php" class="cat-button" target="_blank">COO - Strategic Operational
+            Excellence</a>
+
+          <a href="/kategori/karir/training-cso.php" class="cat-button" target="_blank">CSO - Corporate Strategy and
+            Execution</a>
+          <a href="/kategori/karir/training-dto.php" class="cat-button" target="_blank">Digital Transformation
+            Officer</a>
+
+          <a href="/kategori/karir/training-bics.php" class="cat-button" target="_blank">Business and IT Consulting
+            Skills</a>
+          <a href="/kategori/karir/training-da.php" class="cat-button" target="_blank">Data Analyst - Analytics for
+            Business</a>
+
+          <a href="/kategori/karir/training-rwds.php" class="cat-button" target="_blank">Data Scientist - Real World
+            Data Science</a>
+          <a href="/kategori/karir/training-de.php" class="cat-button" target="_blank">DevOps Engineer - CI/CD and
+            Kubernetes</a>
+          <a href="/kategori/karir/training-cs.php" class="cat-button" target="_blank">Cyber Security Analyst - Threat
+            and Risk Management</a>
+        </div>
+
+      </details>
+
     </div>
   </section>
 
