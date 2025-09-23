@@ -618,7 +618,7 @@ header("Pragma: no-cache");
         <img src="rayterton-apps-software-logo.png" alt="Rayterton Logo">
       </a>
       <ul class="nav d-none d-md-flex">
-        <li class="nav-item"><a class="nav-link" href="#categories">Kategori</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kategori">Kategori</a></li>
         <li class="nav-item"><a class="nav-link" href="#featured">Kelas</a></li>
         <li class="nav-item"><a class="nav-link" href="#schedule">Jadwal</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
@@ -670,9 +670,10 @@ header("Pragma: no-cache");
   </section>
 
   <!-- Categories -->
+
   <section id="kategori">
     <div class="hero">
-      <p>Silahkan pilih kategori training di bawah ini:</p>
+      <p style="font-size:1.5rem;">Silahkan pilih kategori training di bawah ini:</p>
       <details open>
         <summary><strong>Kategori Keahlian Umum (Successful Skills)</strong></summary>
         <a href="/kategori/keahlian-umum/training-it.php" class="cat-button" target="_blank">Information Technology
