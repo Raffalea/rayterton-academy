@@ -1251,32 +1251,39 @@ header("Pragma: no-cache");
   <script>
     const cardsContainer = document.getElementById('cards-container');
     // Tambahkan/ubah script toggleCards agar ada animasi
-    function toggleCards() {
-      var more = document.getElementById('more-cards');
-      var btn = document.getElementById('show-more-cards');
-      var cards = more.querySelectorAll('.cardx');
-      if (!more.classList.contains('show')) {
-        more.style.display = 'block';
-        setTimeout(() => {
-          more.classList.add('show');
-          cards.forEach((card, i) => {
-            card.classList.remove('hide');
-            card.style.transitionDelay = (i * 80) + 'ms';
-          });
-        }, 10);
-        btn.textContent = 'Sembunyikan Kelas Lainnya';
-      } else {
-        more.classList.remove('show');
-        cards.forEach((card, i) => {
-          card.classList.add('hide');
-          card.style.transitionDelay = (i * 50) + 'ms';
-        });
-        setTimeout(() => {
-          more.style.display = 'none';
-        }, 500); // tunggu animasi selesai
-        btn.textContent = 'Tampilkan Kelas Lainnya';
-      }
-    }
+// ...existing code...
+function toggleCards() {
+  var more = document.getElementById('more-cards');
+  var btn = document.getElementById('show-more-cards');
+  var cards = more.querySelectorAll('.cardx');
+  if (!more.classList.contains('show')) {
+    more.style.display = 'block';
+    setTimeout(() => {
+      more.classList.add('show');
+      cards.forEach((card, i) => {
+        card.classList.remove('hide');
+        card.style.transitionDelay = (i * 80) + 'ms';
+      });
+    }, 10);
+    btn.textContent = 'Sembunyikan Kelas Lainnya';
+  } else {
+    more.classList.remove('show');
+    cards.forEach((card, i) => {
+      card.classList.add('hide');
+      card.style.transitionDelay = (i * 50) + 'ms';
+    });
+    setTimeout(() => {
+      more.style.display = 'none';
+      // Tambahkan scroll ke atas #featured
+      document.getElementById('featured').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }, 250); // tunggu animasi selesai
+    btn.textContent = 'Tampilkan Kelas Lainnya';
+  }
+}
+// ...existing code...
     // Inisialisasi cardx di dropdown agar hidden saat awal
     document.querySelectorAll('#more-cards .cardx').forEach(card => card.classList.add('hide'));
     // Tahun footer
