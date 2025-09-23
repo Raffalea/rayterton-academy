@@ -432,6 +432,21 @@ header("Pragma: no-cache");
       margin-top: 12px
     }
 
+    .cardx.extra {
+      opacity: 0;
+      transform: translateY(40px) scale(0.96);
+      pointer-events: none;
+      transition: opacity 0.5s, transform 0.5s;
+      display: none;
+    }
+
+    .cardx.extra.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+      display: block;
+    }
+
     @media (max-width: 1100px) {
       .cards {
         grid-template-columns: repeat(2, 1fr)
@@ -761,90 +776,91 @@ header("Pragma: no-cache");
             </div>
           </div>
         </article>
+        <!-- card ext -->
+        <article class="cardx extra">
+          <img src="assets/img/dotnet.jpg" alt="dotNet dan Angular">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>dotNet dan Angular</h4>
+            <p>Kelas .NET dan Angular mengajarkan pembuatan aplikasi web modern dengan backend menggunakan .NET dan frontend interaktif menggunakan Angular, mulai dari desain, pengembangan, hingga integrasi antar sistem.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx extra">
+          <img src="assets/img/foundation.jpg" alt="dotNet dan Angular">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>Foundation AI</h4>
+            <p>Kelas Foundation of AI memberikan pemahaman dasar tentang kecerdasan buatan, termasuk konsep machine learning, neural network, dan penerapannya dalam berbagai bidang teknologi modern.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx extra">
+          <img src="assets/img/cyber.jpg" alt="dotNet dan Angular">
+          <div class="bx">
+            <span class="badge-soft">IT</span>
+            <h4>Cyber Security</h4>
+            <p>Kelas Cyber Security mengajarkan dasar-dasar keamanan siber, termasuk proteksi data, deteksi ancaman, dan praktik terbaik untuk melindungi sistem dan jaringan dari serangan digital.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx extra">
+          <img src="assets/img/management consult.jpg" alt="dotNet dan Angular">
+          <div class="bx">
+            <span class="badge-soft">BFE</span>
+            <h4>Project Management</h4>
+            <p>Kelas Project Management mengajarkan prinsip, metode, dan alat untuk merencanakan, menjalankan, serta mengawasi proyek agar selesai tepat waktu, sesuai anggaran, dan mencapai tujuan bisnis.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx extra">
+          <img src="assets/img//risk.avif" alt="dotNet dan Angular">
+          <div class="bx">
+            <span class="badge-soft">BFE</span>
+            <h4>Risk Management</h4>
+            <p>Kelas Risk Management mengajarkan cara mengidentifikasi, menganalisis, dan mengelola risiko agar organisasi dapat mengambil keputusan yang tepat dan meminimalkan potensi kerugian.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
+        <article class="cardx extra">
+          <img src="assets/img/strat.avif" alt="dotNet dan Angular">
+          <div class="bx">
+            <span class="badge-soft">BFE</span>
+            <h4>Strategic Management</h4>
+            <p>Kelas Strategic Management mengajarkan cara merumuskan, mengimplementasikan, dan mengevaluasi strategi bisnis agar organisasi dapat mencapai tujuan jangka panjang dan tetap kompetitif.</p>
+            <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
+            <div class="actions">
+              <a class="btn-cta" href="#register">Daftar</a>
+              <a class="btn-ghost" href="#detail-coo">Detail</a>
+            </div>
+          </div>
+        </article>
       </div>
-      <div id="more-cards" style="display:none;">
+      <!-- <div id="more-cards" style="display:none;">
         <div class="cards">
-          <!-- Sisanya card, copy dari card 4 dst -->
-          <article class="cardx">
-            <img src="assets/img/dotnet.jpg" alt="dotNet dan Angular">
-            <div class="bx">
-              <span class="badge-soft">IT</span>
-              <h4>dotNet dan Angular</h4>
-              <p>Kelas .NET dan Angular mengajarkan pembuatan aplikasi web modern dengan backend menggunakan .NET dan frontend interaktif menggunakan Angular, mulai dari desain, pengembangan, hingga integrasi antar sistem.</p>
-              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-              <div class="actions">
-                <a class="btn-cta" href="#register">Daftar</a>
-                <a class="btn-ghost" href="#detail-coo">Detail</a>
-              </div>
-            </div>
-          </article>
-          <article class="cardx">
-            <img src="assets/img/foundation.jpg" alt="dotNet dan Angular">
-            <div class="bx">
-              <span class="badge-soft">IT</span>
-              <h4>Foundation AI</h4>
-              <p>Kelas Foundation of AI memberikan pemahaman dasar tentang kecerdasan buatan, termasuk konsep machine learning, neural network, dan penerapannya dalam berbagai bidang teknologi modern.</p>
-              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-              <div class="actions">
-                <a class="btn-cta" href="#register">Daftar</a>
-                <a class="btn-ghost" href="#detail-coo">Detail</a>
-              </div>
-            </div>
-          </article>
-          <article class="cardx">
-            <img src="assets/img/cyber.jpg" alt="dotNet dan Angular">
-            <div class="bx">
-              <span class="badge-soft">IT</span>
-              <h4>Cyber Security</h4>
-              <p>Kelas Cyber Security mengajarkan dasar-dasar keamanan siber, termasuk proteksi data, deteksi ancaman, dan praktik terbaik untuk melindungi sistem dan jaringan dari serangan digital.</p>
-              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-              <div class="actions">
-                <a class="btn-cta" href="#register">Daftar</a>
-                <a class="btn-ghost" href="#detail-coo">Detail</a>
-              </div>
-            </div>
-          </article>
-          <article class="cardx">
-            <img src="assets/img/management consult.jpg" alt="dotNet dan Angular">
-            <div class="bx">
-              <span class="badge-soft">BFE</span>
-              <h4>Project Management</h4>
-              <p>Kelas Project Management mengajarkan prinsip, metode, dan alat untuk merencanakan, menjalankan, serta mengawasi proyek agar selesai tepat waktu, sesuai anggaran, dan mencapai tujuan bisnis.</p>
-              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-              <div class="actions">
-                <a class="btn-cta" href="#register">Daftar</a>
-                <a class="btn-ghost" href="#detail-coo">Detail</a>
-              </div>
-            </div>
-          </article>
-          <article class="cardx">
-            <img src="assets/img//risk.avif" alt="dotNet dan Angular">
-            <div class="bx">
-              <span class="badge-soft">BFE</span>
-              <h4>Risk Management</h4>
-              <p>Kelas Risk Management mengajarkan cara mengidentifikasi, menganalisis, dan mengelola risiko agar organisasi dapat mengambil keputusan yang tepat dan meminimalkan potensi kerugian.</p>
-              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-              <div class="actions">
-                <a class="btn-cta" href="#register">Daftar</a>
-                <a class="btn-ghost" href="#detail-coo">Detail</a>
-              </div>
-            </div>
-          </article>
-          <article class="cardx">
-            <img src="assets/img/strat.avif" alt="dotNet dan Angular">
-            <div class="bx">
-              <span class="badge-soft">BFE</span>
-              <h4>Strategic Management</h4>
-              <p>Kelas Strategic Management mengajarkan cara merumuskan, mengimplementasikan, dan mengevaluasi strategi bisnis agar organisasi dapat mencapai tujuan jangka panjang dan tetap kompetitif.</p>
-              <div class="meta"><i class="bi bi-clock"></i> 2 hari • <i class="bi bi-bar-chart"></i> Intermediate</div>
-              <div class="actions">
-                <a class="btn-cta" href="#register">Daftar</a>
-                <a class="btn-ghost" href="#detail-coo">Detail</a>
-              </div>
-            </div>
-          </article>
+
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="text-center mt-3">
       <button class="btn-cta" id="show-more-cards" onclick="toggleCards()">Tampilkan Kelas Lainnya</button>
@@ -1249,59 +1265,98 @@ header("Pragma: no-cache");
   </footer>
 
   <script>
-    const cardsContainer = document.getElementById('cards-container');
-    // Tambahkan/ubah script toggleCards agar ada animasi
-// ...existing code...
-function toggleCards() {
-  var more = document.getElementById('more-cards');
-  var btn = document.getElementById('show-more-cards');
-  var cards = more.querySelectorAll('.cardx');
-  if (!more.classList.contains('show')) {
-    more.style.display = 'block';
-    setTimeout(() => {
-      more.classList.add('show');
-      cards.forEach((card, i) => {
-        card.classList.remove('hide');
-        card.style.transitionDelay = (i * 80) + 'ms';
-      });
-    }, 10);
-    btn.textContent = 'Sembunyikan Kelas Lainnya';
-  } else {
-    more.classList.remove('show');
-    cards.forEach((card, i) => {
-      card.classList.add('hide');
-      card.style.transitionDelay = (i * 50) + 'ms';
-    });
-    setTimeout(() => {
-      more.style.display = 'none';
-      // Tambahkan scroll ke atas #featured
-      document.getElementById('featured').scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }, 250); // tunggu animasi selesai
-    btn.textContent = 'Tampilkan Kelas Lainnya';
-  }
-}
-// ...existing code...
-    // Inisialisasi cardx di dropdown agar hidden saat awal
-    document.querySelectorAll('#more-cards .cardx').forEach(card => card.classList.add('hide'));
-    // Tahun footer
-    document.getElementById('y').textContent = new Date().getFullYear();
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        if (id.length > 1) {
-          e.preventDefault();
-          document.querySelector(id)?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      })
-    });
+    // // Script untuk menampilkan lebih banyak kelas dengan animasi
+    // const cardsContainer = document.getElementById('cards-container');
+    // // Tambahkan/ubah script toggleCards agar ada animasi
+    // // ...existing code...
+    // function toggleCards() {
+    //   var more = document.getElementById('more-cards');
+    //   var btn = document.getElementById('show-more-cards');
+    //   var cards = more.querySelectorAll('.cardx');
+    //   if (!more.classList.contains('show')) {
+    //     more.style.display = 'block';
+    //     setTimeout(() => {
+    //       more.classList.add('show');
+    //       cards.forEach((card, i) => {
+    //         card.classList.remove('hide');
+    //         card.style.transitionDelay = (i * 80) + 'ms';
+    //       });
+    //     }, 10);
+    //     btn.textContent = 'Sembunyikan Kelas Lainnya';
+    //   } else {
+    //     more.classList.remove('show');
+    //     cards.forEach((card, i) => {
+    //       card.classList.add('hide');
+    //       card.style.transitionDelay = (i * 50) + 'ms';
+    //     });
+    //     setTimeout(() => {
+    //       more.style.display = 'none';
+    //       // Tambahkan scroll ke atas #featured
+    //       document.getElementById('featured').scrollIntoView({
+    //         behavior: 'smooth',
+    //         block: 'start'
+    //       });
+    //     }, 250); // tunggu animasi selesai
+    //     btn.textContent = 'Tampilkan Kelas Lainnya';
+    //   }
+    // }
+    // // ...existing code...
+    // // Inisialisasi cardx di dropdown agar hidden saat awal
+    // document.querySelectorAll('#more-cards .cardx').forEach(card => card.classList.add('hide'));
+    // // Tahun footer
+    // document.getElementById('y').textContent = new Date().getFullYear();
+    // // Smooth scroll
+    // document.querySelectorAll('a[href^="#"]').forEach(a => {
+    //   a.addEventListener('click', e => {
+    //     const id = a.getAttribute('href');
+    //     if (id.length > 1) {
+    //       e.preventDefault();
+    //       document.querySelector(id)?.scrollIntoView({
+    //         behavior: 'smooth',
+    //         block: 'start'
+    //       });
+    //     }
+    //   })
+    // });
 
+    function toggleCards() {
+      var btn = document.getElementById('show-more-cards');
+      var extras = document.querySelectorAll('.cardx.extra');
+      var showing = extras[0]?.classList.contains('show');
+      if (!showing) {
+        extras.forEach((card, i) => {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.classList.add('show');
+            card.style.transitionDelay = (i * 80) + 'ms';
+          }, 10);
+        });
+        btn.textContent = 'Sembunyikan Kelas Lainnya';
+      } else {
+        extras.forEach((card, i) => {
+          card.classList.remove('show');
+          card.style.transitionDelay = (i * 50) + 'ms';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 500);
+        });
+        btn.textContent = 'Tampilkan Kelas Lainnya';
+        // Scroll ke atas #featured
+        document.getElementById('featured').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    // ...existing code...
+    // Inisialisasi cardx.extra agar hidden saat awal
+    document.querySelectorAll('.cardx.extra').forEach(card => {
+      card.classList.remove('show');
+      card.style.display = 'none';
+    });
+  </script>
+
+  <script>
     // Tab functionality for "Jadwal Training Terdekat"
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -1330,6 +1385,7 @@ function toggleCards() {
   </script>
 
   <script>
+    // Script untuk menonaktifkan tombol "Bayar Sekarang" jika tanggal training sudah lewat
     function disablePastTrainingButtons() {
       const ctaButtons = document.querySelectorAll('.cta-button');
       const today = new Date();
@@ -1363,9 +1419,11 @@ function toggleCards() {
         }
       });
     }
-
     // Panggil fungsi untuk memeriksa dan memperbarui tombol
     disablePastTrainingButtons();
+  </script>
+  <script>
+
   </script>
 </body>
 
