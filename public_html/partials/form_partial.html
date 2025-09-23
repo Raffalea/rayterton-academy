@@ -1,0 +1,765 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/../daftar.css">
+<section id="register">
+  <h2>Formulir Pendaftaran Training</h2>
+  <form action="../index_regis_form_proxy.php" method="POST">
+    <div class="form-group">
+      <label>Kategori:</label>
+      <select name="kategori" id="kategoriSelectForm" required>
+        <option value="">-- Pilih Kategori --</option>
+        <option value="IT">Information Technology (IT)</option>
+        <option value="BFE">Business, Finance, and Economy (BFE)</option>
+        <option value="ELM">Entrepreneurship, Leadership, and Management (ELM)</option>
+        <option value="MN">Manufacturing (MN)</option>
+        <option value="DS">Distribution (DS)</option>
+        <option value="RT">Retail (RT)</option>
+        <option value="BN">Banking (BN)</option>
+        <option value="MF">Multifinance (MF)</option>
+        <option value="IN">Insurance (IN)</option>
+        <option value="CFO">CFO - Financial Leadership</option>
+        <option value="CTO">CTO - Technology Strategy</option>
+        <option value="COO">COO - Strategic Operations Excellence</option>
+        <option value="CSO">CSO - Corporate Strategy and Execution</option>
+        <option value="DTO">Digital Transformation Officer</option>
+        <option value="BIC">Business and IT Consulting Skills</option>
+        <option value="DA">Data Analytics - Analytics for Business</option>
+        <option value="RWDS">Data Scientist - Real-World Data Science</option>
+        <option value="DEVOPS">DevOps Engineer - CI/CD and Kubernetes</option>
+        <option value="CSEC">Cyber Security Analyst</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Pilih Kelas:</label>
+      <select id="kelasSelect" name="nama_kelas" required>
+        <option value="">-- Pilih Kelas --</option>
+      </select>
+    </div>
+    <input type="hidden" name="kode_kelas" id="kodeKelasHidden">
+    <div class="form-group">
+      <label>Type Training:</label>
+      <select name="type_training" id="typeTrainingSelect" required>
+        <option value="">-- Pilih Type Training --</option>
+        <option value="Online">Online (Zoom)</option>
+        <option value="Onsite">Onsite (Offline di kantor Rayterton)</option>
+        <option value="On Client Site">On Client Site (min 5 persons)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Nama Lengkap:</label>
+      <input type="text" name="nama_lengkap" required>
+    </div>
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label>Nomor WhatsApp:</label>
+      <input type="tel" name="whatsapp" required pattern="[0-9]{9,15}"
+        title="Nomor WhatsApp harus terdiri dari 9 hingga 15 digit angka.">
+    </div>
+
+    <div class="form-group">
+      <label>Jumlah Peserta:</label>
+      <div class="number-input-wrapper">
+        <input type="number" id="jumlahPeserta" name="jumlah_peserta" required min="1" max="10" value="1">
+        <div class="btn-group">
+          <button type="button" onclick="changeValue(1)">+</button>
+          <button type="button" onclick="changeValue(-1)">-</button>
+        </div>
+      </div>
+      <div id="jumlahPesertaError" style="color: red; font-size: 0.9em; margin-top: 5px; display: none;">
+        Minimum 5 peserta diperlukan untuk pelatihan On Client Site.
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>Pesan Tambahan (Opsional):</label>
+      <textarea rows="4" name="pesan_tambahan"></textarea>
+    </div>
+    <div class="price-summary-card">
+      <div class="price-item">
+        <label>Harga Kelas (Per Person):</label>
+        <input type="hidden" id="hargaPerPerson" name="harga_perperson">
+        <div class="price-value" id="displayHargaPerPerson">Rp 0</div>
+      </div>
+      <div class="price-item">
+        <label>Diskon:</label>
+        <input type="hidden" id="diskonJuli" name="discount_pct">
+        <div class="price-value" id="displayDiskonJuli">0%</div>
+      </div>
+      <div class="price-item">
+        <label>Subtotal:</label>
+        <input type="hidden" id="netHargaPerPerson" name="net_harga_perperson">
+        <div class="price-value" id="displayNetHargaPerPerson">Rp 0</div>
+      </div>
+      <div class="price-item total-payment">
+        <label>Total Pembayaran:</label>
+        <input type="hidden" id="totalHarga" name="total_harga">
+        <div class="price-value" id="displayTotalHarga">Rp 0</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="g-recaptcha" data-sitekey="6Ld3Q5QrAAAAAM5N9lH2T-meZF_16-gSeZ0DxkOB" data-callback="enableSubmitBtn">
+    </div>
+    <br />
+
+    <button type="submit" class="bayar-button btn-primary" id="MySubmitBtn" disabled="disabled"
+      style="font-family: Poppins;">Daftar Sekarang</button>
+  </form>
+</section>
+
+<script>
+  function enableSubmitBtn() {
+    document.getElementById("MySubmitBtn").disabled = false
+  }
+</script>
+
+<script>
+  function changeValue(step) {
+    const input = document.getElementById('jumlahPeserta');
+    const min = parseInt(input.min);
+    const max = parseInt(input.max);
+    let value = parseInt(input.value) || min;
+
+    const next = value + step;
+    if (next >= min && next <= max) {
+      input.value = next;
+    } else if (next < min) { // Ensure value doesn't go below min
+      input.value = min;
+    }
+    validateJumlahPeserta(); // Call validation after button click
+    calculatePrices(); // Recalculate prices after quantity change
+  }
+</script>
+<script>
+  const kelasOptions = {
+    IT: [
+      { code: 'IT001', name: 'How to become a Successful Database Software Consultant or Database Programmer' },
+      { code: 'IT002', name: 'Database Relational, SQL dan PL-SQL' },
+      { code: 'IT003', name: 'Low Code Development using Oracle Apex and Jasper Report' },
+      { code: 'IT004', name: 'Web Development for Government and Corporate Systems using dotNet and Angular' },
+      { code: 'IT005', name: 'Datawarehouse, Business Intelligence (BI), Data Analytic, Data Science and Big Data' },
+      { code: 'IT006', name: 'ERP (Enterprise Resource Planning)' },
+      { code: 'IT007', name: 'Finance and Accounting System' },
+      { code: 'IT008', name: 'Fullstack Development Using React.Js, Node.js, Redis & PostgreSQL' },
+      { code: 'IT009', name: 'Building Online Store Website for your Business (E-Commerce/B2B/B2C Workshop) using WordPress and WooCommerce' },
+      { code: 'IT010', name: 'Web Development Fundamentals (HTML, CSS, JS, Bootstrap)' },
+      { code: 'IT011', name: 'UI/UX design with Figma and Design Thinking' },
+      { code: 'IT012', name: 'Build REST API with NodeJS and MongoDB' },
+      { code: 'IT013', name: 'Git and GitHub for Team Collaboration' },
+      { code: 'IT014', name: 'Fullstack Development Using Flutter, Node.Js & PostgreSQL' },
+      { code: 'IT015', name: 'Dev Ops Engineer (Docker, CI/CD, Terraform)' },
+      { code: 'IT016', name: 'High Performance API Development using Go, Redis, PostgreSQL' },
+      { code: 'IT017', name: 'Backend microservices with Go Lang and Kubernetes' },
+      { code: 'IT018', name: 'Flutter, Firebase Mobile App Development' },
+      { code: 'IT019', name: 'Laravel Fullstack with MySQL' },
+      { code: 'IT020', name: 'AI For Business' },
+      { code: 'IT021', name: 'Cyber Security' },
+      { code: 'IT022', name: 'Foundations Of AI' },
+      { code: 'IT023', name: 'Python for Large Language Models (LLMs)' },
+      { code: 'IT024', name: 'Structured and Unstructured Data' },
+      { code: 'IT025', name: 'Retrieval-Augmented Generation (RAG) with LLMs' },
+      { code: 'IT026', name: 'Structured Output with Tool Use LLMs' },
+      { code: 'IT027', name: 'ReAct Agents and Conversational AI' },
+      { code: 'IT028', name: 'Building AI-Powered Financial Applications' },
+      { code: 'IT029', name: 'Capstone Project' },
+      { code: 'IT030', name: 'SQL MySQL' }
+    ],
+    BFE: [
+      { code: 'BFE001', name: 'Strategic Management' },
+      { code: 'BFE002', name: 'Financial Management' },
+      { code: 'BFE003', name: 'Project Management' },
+      { code: 'BFE004', name: 'Risk Management' },
+      { code: 'BFE005', name: 'Wealth Management' },
+      { code: 'BFE006', name: 'Change Management' },
+      { code: 'BFE007', name: 'Marketing Essentials' },
+      { code: 'BFE008', name: 'Management Accounting' },
+      { code: 'BFE009', name: 'Financial Analyst' }
+    ],
+    ELM: [
+      { code: 'ELM001', name: 'Entrepreneurship and Leadership Skills' },
+      { code: 'ELM002', name: 'Digital Transformation Management' },
+      { code: 'ELM003', name: 'Performance Management' },
+      { code: 'ELM004', name: 'People Management / Team Management' },
+      { code: 'ELM005', name: 'Time and Priority Management' },
+      { code: 'ELM006', name: 'Agile Management / Agile Leadership' },
+      { code: 'ELM007', name: 'Creative & Analytical Thinking' },
+      { code: 'ELM008', name: 'Public Speaking & Presentation Skills' },
+      { code: 'ELM009', name: 'Professional Trainer, Speaker, Coach' }
+    ],
+    MN: [
+      { code: 'MN001', name: 'Smart Manufacturing and Industry 4.0' },
+      { code: 'MN002', name: 'Lean Six Sigma for Operational Excellence' },
+      { code: 'MN003', name: 'Digital Supply Chain Management' },
+      { code: 'MN004', name: 'Total Productive Maintenance (TPM) & Predictive Maintenance' },
+      { code: 'MN005', name: 'Data-Driven Manufacturing: Excel to Power BI' },
+      { code: 'MN006', name: 'Manufacturing Performance KPI Dashboard with Excel' },
+      { code: 'MN007', name: 'Effective Production Planning and Inventory Control (PPIC)' },
+      { code: 'MN008', name: 'Manufacturing Cost Control & Profitability' },
+      { code: 'MN009', name: 'Workforce Productivity and Shopfloor Management' },
+      { code: 'MN010', name: 'Green Manufacturing and ESG Compliance' },
+      { code: 'MN011', name: 'Quality Control and Six Sigma in Manufacturing' },
+      { code: 'MN012', name: 'ERP Manufacturing Module Overview' },
+      { code: 'MN013', name: 'Manufacturing Strategy and Transformation' },
+      { code: 'MN014', name: 'Production Reporting and Data Analysis' },
+      { code: 'MN015', name: 'Manufacturing Costing and Efficiency' },
+      { code: 'MN016', name: 'Lean Manufacturing and Waste Elimination' },
+      { code: 'MN017', name: 'Shopfloor Digitalization and Smart Factory Basics' },
+      { code: 'MN018', name: 'Leadership & People Development for Manufacturing Managers' }
+    ],
+    DS: [
+      { code: 'DS001', name: 'Sales and Distribution Strategy for FMCG' },
+      { code: 'DS002', name: 'Distributor Management and Channel Development' },
+      { code: 'DS003', name: 'Inventory Management and Warehouse Operations' },
+      { code: 'DS004', name: 'Route Optimization and Delivery Management' },
+      { code: 'DS005', name: 'Trade Marketing and Promotion Execution' },
+      { code: 'DS006', 'name': 'Sales Forecasting and Demand Planning' },
+      { code: 'DS007', name: 'Distributor Performance Monitoring and Dashboarding' },
+      { code: 'DS008', name: 'Credit Management in Distribution' },
+      { code: 'DS009', name: 'Digital Transformation for Distribution Network' },
+      { code: 'DS010', name: 'Leadership and Team Management for Distribution Supervisors' }
+    ],
+    RT: [
+      { code: 'RT001', name: 'Retail Strategy and Omni-Channel Management' },
+      { code: 'RT002', name: 'Visual Merchandising and Store Layout Optimization' },
+      { code: 'RT003', name: 'Retail Data Analytics and Reporting' },
+      { code: 'RT004', name: 'Customer Service Excellence in Retail' },
+      { code: 'RT005', name: 'Inventory Management and Shrinkage Control' },
+      { code: 'RT006', name: 'Retail Marketing and Promotion Strategy' },
+      { code: 'RT007', name: 'Retail Leadership and Store Management' },
+      { code: 'RT008', name: 'Digital Transformation in Retail' },
+      { code: 'RT009', name: 'Salesmanship and Retail Selling Techniques' },
+      { code: 'RT010', name: 'Managing Retail Operations During High Season' }
+    ],
+    BN: [
+      { code: 'BN001', name: 'Digital Banking and Fintech Transformation' },
+      { code: 'BN002', name: 'Credit Risk Management and Scoring' },
+      { code: 'BN003', name: 'Operational Excellence in Banking Services' },
+      { code: 'BN004', name: 'Core Banking System Understanding for Non-IT' },
+      { code: 'BN005', name: 'Bank Financial Statement Analysis and Profitability' },
+      { code: 'BN006', 'name': 'Regulatory Compliance and Anti-Money Laundering (AML)' },
+      { code: 'BN007', name: 'Digital Marketing and Customer Engagement for Banking' },
+      { code: 'BN008', name: 'Retail Lending and Microfinance Strategies' },
+      { code: 'BN009', name: 'Branch Performance and KPI Management' },
+      { code: 'BN010', name: 'Leadership and Risk Culture in Banking' }
+    ],
+    MF: [
+      { code: 'MF001', name: 'Credit Analysis and Consumer Financing' },
+      { code: 'MF002', name: 'Collection Strategy and Delinquency Management' },
+      { code: 'MF003', name: 'Risk Management in Multifinance' },
+      { code: 'MF004', name: 'Operational Excellence in Financing Process' },
+      { code: 'MF005', name: 'Anti Fraud Awareness and Investigation Techniques' },
+      { code: 'MF006', name: 'Digital Transformation in Multifinance' },
+      { code: 'MF007', name: 'Financial Performance and Portfolio Monitoring' },
+      { code: 'MF008', name: 'Customer Experience and Service Excellence' },
+      { code: 'MF009', name: 'Product Innovation and Marketing Strategy' },
+      { code: 'MF010', name: 'Leadership and Performance Culture for Multifinance Supervisors' }
+    ],
+    IN: [
+      { code: 'IN001', name: 'Digital Transformation in Insurance' },
+      { code: 'IN002', name: 'Risk-Based Capital (RBC) and Risk Management in Insurance' },
+      { code: 'IN003', name: 'Underwriting Management and Risk Selection' },
+      { code: 'IN004', name: 'Claim Handling and Fraud Prevention' },
+      { code: 'IN005', name: 'Product Development and Innovation in Insurance' },
+      { code: 'IN006', name: 'Regulatory Compliance and Governance' },
+      { code: 'IN007', name: 'Customer Service Excellence in Insurance' },
+      { code: 'IN008', name: 'Agency Development and Leadership for Insurance Sales' },
+      { code: 'IN009', name: 'Bancassurance Management and Partnership Strategy' },
+      { code: 'IN010', name: 'Data Analytics and Reporting for Insurance Business' }
+    ],
+    DA: [
+      { code: 'DA001', name: 'Fundamentals of Business Analytics' },
+      { code: 'DA002', name: 'Data Visualization and Dashboard using Excel & Power BI' },
+      { code: 'DA003', name: 'Descriptive, Diagnostic and Predictive Analytics' },
+      { code: 'DA004', name: 'SQL for Data Analysis' },
+      { code: 'DA005', name: 'Python for Business Data Analytics' },
+      { code: 'DA006', name: 'Statistics and Data Interpretation for Business' },
+      { code: 'DA007', name: 'A/B Testing and Experimental Design' },
+      { code: 'DA008', name: 'Data Cleaning and Preparation Techniques' },
+      { code: 'DA009', name: 'KPI and Business Performance Analysis' },
+      { code: 'DA010', name: 'Customer and Marketing Analytics' }
+    ],
+    CTO: [
+      { code: 'CTO001', name: 'Strategic Technology Planning for Digital Business' },
+      { code: 'CTO002', name: 'Enterprise Architecture and Technology Governance' },
+      { code: 'CTO003', name: 'Leading Digital Transformation and Innovation' },
+      { code: 'CTO004', name: 'Cloud Computing Strategy and Cost Optimization' },
+      { code: 'CTO005', name: 'Cybersecurity Strategy and Technology Risk Management' },
+      { code: 'CTO006', name: 'Managing Software Development Teams and DevOps Culture' },
+      { code: 'CTO007', name: 'IT Budgeting, Investment Analysis and ROI' },
+      { code: 'CTO008', name: 'AI and Data Strategy for CTO' },
+      { code: 'CTO009', name: 'Vendor Management and IT Outsourcing Strategy' },
+      { code: 'CTO10', name: 'Technology Due Diligence for M&A and Startup Investment' }
+    ],
+    DEVOPS: [
+      { code: 'DEVOPS001', name: 'CI/CD Pipeline with GitHub Actions, GitLab, and Jenkins' },
+      { code: 'DEVOPS002', name: 'Docker and Kubernetes for Scalable App Deployment' },
+      { code: 'DEVOPS003', name: 'Infrastructure as Code (IaC) with Terraform and Ansible' },
+      { code: 'DEVOPS004', name: 'Monitoring, Logging & Alerting using Prometheus, Grafana, and ELK Stack' },
+      { code: 'DEVOPS005', name: 'DevSecOps: Integrating Security into DevOps Lifecycle' },
+      { code: 'DEVOPS006', name: 'Cloud Native DevOps with Kubernetes and Helm' },
+      { code: 'DEVOPS007', name: 'High Availability and Auto-Scaling in AWS/GCP/Azure' },
+      { code: 'DEVOPS008', name: 'GitOps with ArgoCD and FluxCD' },
+      { code: 'DEVOPS009', name: 'Advanced Bash & Shell Scripting for DevOps Automation' },
+      { code: 'DEVOPS010', name: 'Service Mesh & Zero Trust Networking with Istio/Linkerd' }
+    ],
+    CFO: [
+      { code: 'CFO001', name: 'Strategic Financial Management for Executives' },
+      { code: 'CFO002', name: 'Budgeting, Forecasting & Financial Planning Mastery' },
+      { code: 'CFO003', name: 'Financial Statement Analysis and Business Valuation' },
+      { code: 'CFO004', name: 'Capital Structure & Corporate Funding Strategy' },
+      { code: 'CFO005', name: 'Cash Flow Optimization and Working Capital Management' },
+      { code: 'CFO006', name: 'Performance Dashboard & KPI for Finance Leaders' },
+      { code: 'CFO007', name: 'Risk-Based Financial Decision Making' },
+      { code: 'CFO008', name: 'Finance Digitalization and ERP Systems for CFO' },
+      { code: 'CFO009', name: 'Investor Relations & Financial Communication Skills' },
+      { code: 'CFO010', name: 'Tax Planning Strategy for CFOs' }
+    ],
+    CSEC: [
+      { code: 'CSEC001', name: 'Introduction to Cybersecurity for Professionals' },
+      { code: 'CSEC002', name: 'Protecting Business from Cyber Threats' },
+      { code: 'CSEC003', name: 'Network & Endpoint Security Fundamentals' },
+      { code: 'CSEC004', name: 'Ethical Hacking & Penetration Testing (Fundamental)' },
+      { code: 'CSEC005', name: 'Cybersecurity Policy and Compliance for Company' }
+    ],
+    DTO: [
+      { code: 'DTO001', name: 'Digital Transformation Strategy and Roadmap' },
+      { code: 'DTO002', name: 'Customer-Centric Digital Experience (CX/UX)' },
+      { code: 'DTO003', name: 'Business Process Reengineering and Automation' },
+      { code: 'DTO004', name: 'Artificial Intelligence and Data-Driven Innovation' },
+      { code: 'DTO005', name: 'Agile Enterprise and Digital Culture Change' },
+      { code: 'DTO006', name: 'Technology Stack and Platform Selection for Digital Ecosystem' },
+      { code: 'DTO007', name: 'E-Governance and Compliance in Digital Initiatives' },
+      { code: 'DTO008', name: 'Digital KPI, Analytics & Performance Monitoring' },
+      { code: 'DTO009', name: 'Digital Product and Innovation Management' },
+      { code: 'DTO10', name: 'Omnichannel Strategy and Marketing Automation' }
+    ],
+    RWDS: [
+      { code: 'RWDS001', name: 'Introduction to Data Science and Career Path' },
+      { code: 'RWDS002', name: 'Python Programming for Data Science' },
+      { code: 'RWDS003', name: 'Statistics and Probability for Data Science' },
+      { code: 'RWDS004', name: 'Exploratory Data Analysis (EDA) and Data Wrangling' },
+      { code: 'RWDS005', name: 'Machine Learning Algorithms and Supervised Learning' },
+      { code: 'RWDS006', name: 'Unsupervised Learning and Clustering Techniques' },
+      { code: 'RWDS007', name: 'Model Evaluation, Tuning and Deployment' },
+      { code: 'RWDS008', name: 'Real-World Data Science Projects and Case Studies' },
+      { code: 'RWDS009', name: 'Big Data and Distributed Computing (Hadoop, Spark)' },
+      { code: 'RWDS010', name: 'AI Ethics, Bias, and Responsible Data Science' }
+    ],
+    CSO: [
+      { code: 'CSO001', name: 'Strategic Planning and Business Model Innovation' },
+      { code: 'CSO002', name: 'Corporate Performance Management and OKR' },
+      { code: 'CSO003', name: 'Data-Driven Decision Making for Executives' },
+      { code: 'CSO004', name: 'Digital Business Strategy and Market Disruption' },
+      { code: 'CSO005', name: 'Strategic Risk Management and Scenario Planning' },
+      { code: 'CSO006', name: 'Stakeholder Engagement and Strategic Communication' },
+      { code: 'CS007', name: 'Sustainability and ESG Strategy' },
+      { code: 'CSO008', name: 'Mergers, Acquisitions and Strategic Partnerships' },
+      { code: 'CSO009', name: 'Corporate Transformation and Change Leadership' },
+      { code: 'CSO10', name: 'Balanced Scorecard and Strategic Execution' }
+    ],
+    BIC: [
+      { code: 'BIC001', name: 'Business and IT Consulting Fundamentals' },
+      { code: 'BIC002', name: 'Requirement Analysis and Stakeholder Management' },
+      { code: 'BIC003', 'name': 'Design Thinking and Solution Framing' },
+      { code: 'BIC004', name: 'Consulting Proposal and Business Case Development' },
+      { code: 'BIC005', name: 'Presentation, Communication and Storytelling for Consultants' },
+      { code: 'BIC006', name: 'Change Management and Consulting Execution Skills' },
+      { code: 'BIC007', name: 'Strategic Problem Solving and Issue Tree Structuring' },
+      { code: 'BIC008', name: 'Facilitation, Interviewing and Workshop Moderation' },
+      { code: 'BIC009', name: 'IT and Business Alignment in Consulting Projects' },
+      { code: 'BIC010', name: 'Client Engagement and Relationship Management' }
+    ],
+    COO: [
+      { code: 'COO001', name: 'Strategic Technology Planning for Digital Business' },
+      { code: 'COO002', name: 'Enterprise Architecture and Technology Governance' },
+      { code: 'COO003', name: 'Leading Digital Transformation and Innovation' },
+      { code: 'COO004', name: 'Cloud Computing Strategy and Cost Optimization' },
+      { code: 'COO005', name: 'Cybersecurity Strategy and Technology Risk Management' },
+      { code: 'COO006', name: 'Managing Software Development Teams and DevOps Culture' },
+      { code: 'COO007', name: 'IT Budgeting, Investment Analysis and ROI' },
+      { code: 'COO008', name: 'AI and Data Strategy for COO' },
+      { code: 'COO009', name: 'Vendor Management and IT Outsourcing Strategy' },
+      { code: 'COO010', name: 'Technology Due Diligence for M&A and Startup Investment' }
+    ]
+  };
+
+  // Define prices based on the provided image
+  const trainingPrices = {
+    'IT001': {
+      'Online': { harga_per_person: 1765000, diskon_pct: 0.15, net_harga_per_person: 1500000 }
+    },
+    'IT002': {
+      'Online': { harga_per_person: 1294000, diskon_pct: 0.15, net_harga_per_person: 1100000 },
+      'Onsite': { harga_per_person: 3883000, diskon_pct: 0.15, net_harga_per_person: 3300000 },
+      'On Client Site': { harga_per_person: 4177000, diskon_pct: 0.15, net_harga_per_person: 3550000 }
+    },
+    'IT003': {
+      'Online': { harga_per_person: 1294000, diskon_pct: 0.15, net_harga_per_person: 1100000 },
+      'Onsite': { harga_per_person: 5648000, diskon_pct: 0.15, net_harga_per_person: 4800000 },
+      'On Client Site': { harga_per_person: 5942000, diskon_pct: 0.15, net_harga_per_person: 5050000 }
+    },
+    'IT004': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 6824000, diskon_pct: 0.15, net_harga_per_person: 5800000 },
+      'On Client Site': { harga_per_person: 7118000, diskon_pct: 0.15, net_harga_per_person: 6050000 }
+    },
+    'IT005': {
+      'Online': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'Onsite': { harga_per_person: 5295000, diskon_pct: 0.15, net_harga_per_person: 4500000 },
+      'On Client Site': { harga_per_person: 5589000, diskon_pct: 0.15, net_harga_per_person: 4750000 }
+    },
+    'IT006': {
+      'Online': { harga_per_person: 1294000, diskon_pct: 0.15, net_harga_per_person: 1100000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'IT007': {
+      'Online': { harga_per_person: 1294000, diskon_pct: 0.15, net_harga_per_person: 1100000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'IT008': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 6824000, diskon_pct: 0.15, net_harga_per_person: 5800000 },
+      'On Client Site': { harga_per_person: 7118000, diskon_pct: 0.15, net_harga_per_person: 6050000 }
+    },
+    'IT009': {
+      'Online': { harga_per_person: 1765000, diskon_pct: 0.15, net_harga_per_person: 1500000 },
+      'Onsite': { harga_per_person: 2942000, diskon_pct: 0.15, net_harga_per_person: 2500000 },
+      'On Client Site': { harga_per_person: 3236000, diskon_pct: 0.15, net_harga_per_person: 2750000 }
+    },
+    'IT010': {
+      'Online': { harga_per_person: 1294000, diskon_pct: 0.15, net_harga_per_person: 1100000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'IT011': {
+      'Online': { harga_per_person: 1294000, diskon_pct: 0.15, net_harga_per_person: 1100000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'IT012': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 3883000, diskon_pct: 0.15, net_harga_per_person: 3300000 },
+      'On Client Site': { harga_per_person: 4177000, diskon_pct: 0.15, net_harga_per_person: 3550000 }
+    },
+    'IT013': {
+      'Online': { harga_per_person: 1765000, diskon_pct: 0.15, net_harga_per_person: 1500000 },
+      'Onsite': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'On Client Site': { harga_per_person: 2412000, diskon_pct: 0.15, net_harga_per_person: 2050000 }
+    },
+    'IT014': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 6824000, diskon_pct: 0.15, net_harga_per_person: 5800000 },
+      'On Client Site': { harga_per_person: 7118000, diskon_pct: 0.15, net_harga_per_person: 6050000 }
+    },
+    'IT015': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 6824000, diskon_pct: 0.15, net_harga_per_person: 5800000 },
+      'On Client Site': { harga_per_person: 7118000, diskon_pct: 0.15, net_harga_per_person: 6050000 }
+    },
+    'IT016': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 6824000, diskon_pct: 0.15, net_harga_per_person: 5800000 },
+      'On Client Site': { harga_per_person: 7118000, diskon_pct: 0.15, net_harga_per_person: 6050000 }
+    },
+    'IT017': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 6824000, diskon_pct: 0.15, net_harga_per_person: 5800000 },
+      'On Client Site': { harga_per_person: 7118000, diskon_pct: 0.15, net_harga_per_person: 6050000 }
+    },
+    'IT018': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 5295000, diskon_pct: 0.15, net_harga_per_person: 4500000 },
+      'On Client Site': { harga_per_person: 5589000, diskon_pct: 0.15, net_harga_per_person: 4750000 }
+    },
+    'IT019': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 4706000, diskon_pct: 0.15, net_harga_per_person: 4000000 },
+      'On Client Site': { harga_per_person: 5000000, diskon_pct: 0.15, net_harga_per_person: 4250000 }
+    },
+    'BFE001': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 3883000, diskon_pct: 0.15, net_harga_per_person: 3300000 },
+      'On Client Site': { harga_per_person: 4177000, diskon_pct: 0.15, net_harga_per_person: 3550000 }
+    },
+    'BFE002': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 3883000, diskon_pct: 0.15, net_harga_per_person: 3300000 },
+      'On Client Site': { harga_per_person: 4177000, diskon_pct: 0.15, net_harga_per_person: 3550000 }
+    },
+    'BFE003': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'BFE004': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 3883000, diskon_pct: 0.15, net_harga_per_person: 3300000 },
+      'On Client Site': { harga_per_person: 4177000, diskon_pct: 0.15, net_harga_per_person: 3550000 }
+    },
+    'BFE005': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 3883000, diskon_pct: 0.15, net_harga_per_person: 3300000 },
+      'On Client Site': { harga_per_person: 4177000, diskon_pct: 0.15, net_harga_per_person: 3550000 }
+    },
+    'BFE006': {
+      'Online': { harga_per_person: 1412000, diskon_pct: 0.15, net_harga_per_person: 1200000 },
+      'Onsite': { harga_per_person: 1765000, diskon_pct: 0.15, net_harga_per_person: 1500000 },
+      'On Client Site': { harga_per_person: 2059000, diskon_pct: 0.15, net_harga_per_person: 1750000 }
+    },
+    'BFE007': {
+      'Online': { harga_per_person: 1412000, diskon_pct: 0.15, net_harga_per_person: 1200000 },
+      'Onsite': { harga_per_person: 1765000, diskon_pct: 0.15, net_harga_per_person: 1500000 },
+      'On Client Site': { harga_per_person: 2059000, diskon_pct: 0.15, net_harga_per_person: 1750000 }
+    },
+    'BFE008': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'BFE009': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 3883000, diskon_pct: 0.15, net_harga_per_person: 3300000 },
+      'On Client Site': { harga_per_person: 4177000, diskon_pct: 0.15, net_harga_per_person: 3550000 }
+    },
+    'ELM001': {
+      'Online': { harga_per_person: 1471000, diskon_pct: 0.15, net_harga_per_person: 1250000 },
+      'Onsite': { harga_per_person: 2942000, diskon_pct: 0.15, net_harga_per_person: 2500000 },
+      'On Client Site': { harga_per_person: 3236000, diskon_pct: 0.15, net_harga_per_person: 2750000 }
+    },
+    'ELM002': {
+      'Online': { harga_per_person: 1471000, diskon_pct: 0.15, net_harga_per_person: 1250000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'ELM003': {
+      'Online': { harga_per_person: 1471000, diskon_pct: 0.15, net_harga_per_person: 1250000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'ELM004': {
+      'Online': { harga_per_person: 1294000, diskon_pct: 0.15, net_harga_per_person: 1100000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'ELM005': {
+      'Online': { harga_per_person: 1294000, diskon_pct: 0.15, net_harga_per_person: 1100000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    },
+    'ELM006': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 3295000, diskon_pct: 0.15, net_harga_per_person: 2800000 },
+      'On Client Site': { harga_per_person: 3589000, diskon_pct: 0.15, net_harga_per_person: 3050000 }
+    },
+    'ELM007': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 3295000, diskon_pct: 0.15, net_harga_per_person: 2800000 },
+      'On Client Site': { harga_per_person: 3589000, diskon_pct: 0.15, net_harga_per_person: 3050000 }
+    },
+    'ELM008': {
+      'Online': { harga_per_person: 2118000, diskon_pct: 0.15, net_harga_per_person: 1800000 },
+      'Onsite': { harga_per_person: 3295000, diskon_pct: 0.15, net_harga_per_person: 2800000 },
+      'On Client Site': { harga_per_person: 3589000, diskon_pct: 0.15, net_harga_per_person: 3050000 }
+    },
+    'ELM009': {
+      'Online': { harga_per_person: 1294000, diskon_pct: 0.15, net_harga_per_person: 1100000 },
+      'Onsite': { harga_per_person: 2589000, diskon_pct: 0.15, net_harga_per_person: 2200000 },
+      'On Client Site': { harga_per_person: 2883000, diskon_pct: 0.15, net_harga_per_person: 2450000 }
+    }
+    // Add other training codes and their prices as needed from your data
+    // For now, only BFE001 prices are defined as per the image.
+    // Example for another training (if available in your full data):
+    // 'IT001': {
+    //   'Online': { harga_per_person: 1500000, diskon_pct: 0.15, net_harga_per_person: 1275000 },
+    //   'Onsite': { harga_per_person: 2800000, diskon_pct: 0.15, net_harga_per_person: 2380000 }
+    // }
+  };
+
+  const kategoriSelectForm = document.getElementById('kategoriSelectForm');
+  const kelasSelect = document.getElementById('kelasSelect');
+  const kodeKelasHiddenInput = document.getElementById('kodeKelasHidden');
+  const typeTrainingSelect = document.getElementById('typeTrainingSelect');
+  const jumlahPesertaInput = document.getElementById('jumlahPeserta');
+  const jumlahPesertaError = document.getElementById('jumlahPesertaError');
+  const priceSummaryCard = document.querySelector('.price-summary-card'); // Get the price card element
+
+  // Hidden price inputs (for form submission)
+  const hargaPerPersonInput = document.getElementById('hargaPerPerson');
+  const diskonJuliInput = document.getElementById('diskonJuli');
+  const netHargaPerPersonInput = document.getElementById('netHargaPerPerson');
+  const totalHargaInput = document.getElementById('totalHarga');
+
+  // Display elements for prices
+  const displayHargaPerPerson = document.getElementById('displayHargaPerPerson');
+  const displayDiskonJuli = document.getElementById('displayDiskonJuli');
+  const displayNetHargaPerPerson = document.getElementById('displayNetHargaPerPerson');
+  const displayTotalHarga = document.getElementById('displayTotalHarga');
+
+
+  function formatRupiah(amount) {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(amount);
+  }
+
+  // Function to calculate and display prices
+  function calculatePrices() {
+    const selectedKodeKelas = kodeKelasHiddenInput.value;
+    const selectedTypeTraining = typeTrainingSelect.value;
+    const jumlahPeserta = parseInt(jumlahPesertaInput.value);
+
+    let hargaPerPerson = 0;
+    let diskonPct = 0;
+    let netHargaPerPerson = 0;
+    let totalHarga = 0;
+
+    // Check if price data exists for the selected class and type
+    if (selectedKodeKelas && selectedTypeTraining && trainingPrices[selectedKodeKelas] && trainingPrices[selectedKodeKelas][selectedTypeTraining]) {
+      const priceData = trainingPrices[selectedKodeKelas][selectedTypeTraining];
+      hargaPerPerson = priceData.harga_per_person;
+      diskonPct = priceData.diskon_pct * 100; // Convert to percentage for display
+      netHargaPerPerson = priceData.net_harga_per_person;
+      totalHarga = netHargaPerPerson * jumlahPeserta;
+
+      // Show the card
+      priceSummaryCard.style.display = 'block';
+    } else {
+      // If no price data, hide the card and reset values
+      hargaPerPerson = 0;
+      diskonPct = 0;
+      netHargaPerPerson = 0;
+      totalHarga = 0;
+      priceSummaryCard.style.display = 'none';
+    }
+
+    // Update hidden input values (for form submission)
+    hargaPerPersonInput.value = hargaPerPerson;
+    diskonJuliInput.value = diskonPct;
+    netHargaPerPersonInput.value = netHargaPerPerson;
+    totalHargaInput.value = totalHarga;
+
+    // Update display elements
+    displayHargaPerPerson.textContent = formatRupiah(hargaPerPerson);
+    // If diskonPct is 0, display "Rp 0", otherwise display percentage
+    displayDiskonJuli.textContent = diskonPct === 0 ? formatRupiah(0) : `${diskonPct}%`;
+    displayNetHargaPerPerson.textContent = formatRupiah(netHargaPerPerson);
+    displayTotalHarga.textContent = formatRupiah(totalHarga);
+  }
+
+  // Function to validate and display error for Jumlah Peserta
+  function validateJumlahPeserta() {
+    if (typeTrainingSelect.value === 'On Client Site') {
+      const currentJumlah = parseInt(jumlahPesertaInput.value);
+      if (isNaN(currentJumlah) || currentJumlah < 5) {
+        jumlahPesertaError.style.display = 'block';
+        jumlahPesertaInput.setCustomValidity('Minimum 5 peserta diperlukan untuk pelatihan On Client Site.');
+      } else {
+        jumlahPesertaError.style.display = 'none';
+        jumlahPesertaInput.setCustomValidity(''); // Clear custom validity
+      }
+    } else {
+      jumlahPesertaError.style.display = 'none';
+      jumlahPesertaInput.setCustomValidity('');
+    }
+  }
+
+  // Mengisi pilihan kelas saat kategori berubah
+  kategoriSelectForm.addEventListener('change', function () {
+    populateKelasOptions();
+    calculatePrices(); // Recalculate prices after category change
+  });
+
+  // Mengisi input hidden "Kode Kelas" saat kelas dipilih
+  kelasSelect.addEventListener('change', function () {
+    const selectedOption = this.options[this.selectedIndex];
+    kodeKelasHiddenInput.value = selectedOption.dataset.kode;
+    calculatePrices(); // Recalculate prices after class selection
+  });
+
+  // Event listener for Type Training dropdown
+  typeTrainingSelect.addEventListener('change', function () {
+    if (this.value === 'On Client Site') {
+      jumlahPesertaInput.min = '5';
+      if (parseInt(jumlahPesertaInput.value) < 5) {
+        jumlahPesertaInput.value = '5'; // Set to 5 if current value is less
+      }
+    } else {
+      jumlahPesertaInput.min = '1';
+    }
+    validateJumlahPeserta(); // Re-validate after type change
+    calculatePrices(); // Recalculate prices after type training change
+  });
+
+  // Event listener for input change (manual typing) on Jumlah Peserta
+  jumlahPesertaInput.addEventListener('input', validateJumlahPeserta);
+  jumlahPesertaInput.addEventListener('change', validateJumlahPeserta); // For when focus leaves the input
+  jumlahPesertaInput.addEventListener('input', calculatePrices); // Recalculate prices when quantity is manually changed
+
+  // Fungsi untuk mengisi pilihan kelas
+  function populateKelasOptions() {
+    kelasSelect.innerHTML = '<option value="">-- Pilih Kelas --</option>';
+    kodeKelasHiddenInput.value = '';
+    const selectedCategory = kategoriSelectForm.value;
+
+    (kelasOptions[selectedCategory] || []).forEach(k => {
+      let o = document.createElement('option');
+      o.value = `${k.name} (${k.code})`;
+      o.textContent = `${k.name} (${k.code})`;
+      o.dataset.kode = k.code;
+      kelasSelect.appendChild(o);
+    });
+  }
+
+  // Fungsi untuk mengambil parameter URL
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  };
+
+  // Saat halaman dimuat, periksa parameter 'kode' dan isi form
+  document.addEventListener('DOMContentLoaded', function () {
+    const kodeFromUrl = getUrlParameter('kode');
+    if (kodeFromUrl) {
+      let foundCategory = '';
+      let foundName = '';
+
+      // Cari kategori dan nama kelas berdasarkan kode kelas dari URL
+      for (const category in kelasOptions) {
+        const foundItem = kelasOptions[category].find(item => item.code === kodeFromUrl);
+        if (foundItem) {
+          foundCategory = category;
+          foundName = foundItem.name;
+          break;
+        }
+      }
+
+      if (foundCategory) {
+        // 1. Pilih kategori yang benar
+        kategoriSelectForm.value = foundCategory;
+
+        // 2. Tampilkan semua kelas untuk kategori tersebut
+        populateKelasOptions();
+
+        // 3. Pilih kelas yang sesuai dengan kode dari URL
+        const kelasValue = `${foundName} (${kodeFromUrl})`;
+        kelasSelect.value = kelasValue;
+
+        // 4. Isi input hidden Kode Kelas
+        kodeKelasHiddenInput.value = kodeFromUrl;
+      }
+    }
+    // Initial validation and price calculation call when the page loads
+    validateJumlahPeserta();
+    calculatePrices();
+  });
+</script>

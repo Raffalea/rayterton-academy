@@ -646,7 +646,7 @@ header("Pragma: no-cache");
       <div class="actions">
         <a href="#featured" class="btn-cta"><i class="bi bi-collection me-1"></i> Telusuri Kelas Populer</a>
         <a href="#schedule" class="btn-ghost"><i class="bi bi-calendar-event me-1"></i> Lihat Jadwal Terdekat</a>
-        <a href="#contact" class="btn-ghost"><i class="bi bi-telephone me-1"></i> Konsultasi Dengan Kami</a>
+        <a href="#kontak" class="btn-ghost"><i class="bi bi-telephone me-1"></i> Konsultasi Dengan Kami</a>
       </div>
       <div class="counters mt-4">
         <div class="counter">
@@ -1209,7 +1209,7 @@ header("Pragma: no-cache");
           </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6" id="kontak">
           <div class="p-4 rounded-4 text-white" style="background:#083a66">
             <h3 class="mb-2">Hubungi Kami</h3>
             <p class="mb-3">Butuh konsultasi pemilihan kelas yang paling pas</p>
@@ -1227,43 +1227,7 @@ header("Pragma: no-cache");
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-5">
-          <div class="fbrand">
-            <img src="rayterton-academy-logo.png" alt="Rayterton Logo">
-          </div>
-          <p class="mt-2">Bagian dari Rayterton Apps Software. Solusi pelatihan yang bisa disesuaikan untuk mendukung transformasi digital organisasi Anda.</p>
-        </div>
-        <div class="col-lg-3">
-          <h6>Navigasi</h6>
-          <nav class="fnav d-flex flex-column gap-1">
-            <a href="#categories">Kategori</a>
-            <a href="#featured">Kelas</a>
-            <a href="#schedule">Jadwal</a>
-            <a href="#register">Pendaftaran</a>
-          </nav>
-        </div>
-        <div class="col-lg-4">
-          <h6>Newsletter</h6>
-          <p>Dapatkan jadwal dan promo terbaru.</p>
-          <div class="d-flex gap-2">
-            <input class="form-control" placeholder="email@perusahaan.com">
-            <button class="btn-cta">Langganan</button>
-          </div>
-        </div>
-      </div>
-      <hr class="border-secondary-subtle my-4">
-      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-        <small>© <span id="y"></span> Rayterton. All rights reserved.</small>
-        <div class="d-flex gap-3">
-          <a href="#">Kebijakan Privasi</a>
-          <a href="#">Syarat Layanan</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <?php include('./partials/footer.html'); ?>
 
   <script>
     // // Script untuk menampilkan lebih banyak kelas dengan animasi

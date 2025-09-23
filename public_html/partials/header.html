@@ -1,0 +1,64 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=20250827-final"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<header class="header-partial-wrapper">
+    <div class="header-container">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">
+          <i class="fas fa-bars"></i>
+      </label>
+
+      <a href="https://rayterton.com" class="logo-link logo-apps">
+        <img src="/rayterton-apps-software-logo.png?v=20250826-1" alt="Rayterton Apps Logo" class="logo-rayterton">
+      </a>
+
+      <nav class="main-nav">
+          <ul>
+              <li><a href="/#kategori">Deskripsi Training</a></li>
+              <li><a href="/#schedule">Jadwal Terdekat</a></li>
+              <li><a href="/#registrationFormContainer">Registrasi</a></li>
+              <li><a href="https://rayterton.com/rayterton-partner-landing.php">Join Us as Partner</a></li>
+              <li><a href="/daftar_trainer.php">Join Us as Trainers</a></li>
+          </ul>
+      </nav>
+      
+      <a href="/" class="logo-link logo-academy-header">
+        <img src="/rayterton-academy-logo-black.png" alt="Rayterton Academy Logo" class="logo-academy">
+      </a>
+    </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function attachCloseMenuOnClick() {
+      const navLinks = document.querySelectorAll('.main-nav a');
+      const navToggle = document.getElementById('nav-toggle');
+      if (navLinks.length > 0 && navToggle) {
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navToggle.checked = false;
+          });
+        });
+      } else {
+        setTimeout(attachCloseMenuOnClick, 500);
+      }
+    }
+    attachCloseMenuOnClick();
+    const tablesToWrap = document.querySelectorAll('.container table');
+    tablesToWrap.forEach(table => {
+      // Hanya bungkus tabel jika belum memiliki pembungkus
+      if (!table.parentElement.classList.contains('table-responsive')) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-responsive';
+        
+        // Masukkan wrapper sebelum tabel di dalam DOM
+        table.parentNode.insertBefore(wrapper, table);
+        
+        // Pindahkan tabel ke dalam wrapper
+        wrapper.appendChild(table);
+      }
+    });
+  });
+</script>
