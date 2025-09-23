@@ -764,7 +764,7 @@ header("Pragma: no-cache");
             </div>
           </article>
           <article class="cardx">
-            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <img src="assets/img/foundation.jpg" alt="dotNet dan Angular">
             <div class="bx">
               <span class="badge-soft">IT</span>
               <h4>Foundation AI</h4>
@@ -777,7 +777,7 @@ header("Pragma: no-cache");
             </div>
           </article>
           <article class="cardx">
-            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <img src="assets/img/cyber.jpg" alt="dotNet dan Angular">
             <div class="bx">
               <span class="badge-soft">IT</span>
               <h4>Cyber Security</h4>
@@ -790,7 +790,7 @@ header("Pragma: no-cache");
             </div>
           </article>
           <article class="cardx">
-            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <img src="assets/img/management consult.jpg" alt="dotNet dan Angular">
             <div class="bx">
               <span class="badge-soft">BFE</span>
               <h4>Project Management</h4>
@@ -803,7 +803,7 @@ header("Pragma: no-cache");
             </div>
           </article>
           <article class="cardx">
-            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <img src="assets/img//risk.avif" alt="dotNet dan Angular">
             <div class="bx">
               <span class="badge-soft">BFE</span>
               <h4>Risk Management</h4>
@@ -816,7 +816,7 @@ header("Pragma: no-cache");
             </div>
           </article>
           <article class="cardx">
-            <img src="assets/img/React.jpg" alt="dotNet dan Angular">
+            <img src="assets/img/strat.avif" alt="dotNet dan Angular">
             <div class="bx">
               <span class="badge-soft">BFE</span>
               <h4>Strategic Management</h4>
