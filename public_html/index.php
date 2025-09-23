@@ -240,6 +240,94 @@ header("Pragma: no-cache");
       }
     }
 
+    
+  /* Style Section Container */
+#description {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  max-width: 1100px;
+}
+
+/* Style Judul */
+#description h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #004080; /* biru tua */
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-left: 15px;
+}
+
+/* Garis di samping kiri judul */
+#description h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 4px;
+  height: 80%;
+  background: #004080;
+  border-radius: 2px;
+}
+
+
+/* style jadwal training */
+#schedule {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  max-width: 1100px;
+}
+#schedule h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #004080; /* biru tua */
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-left: 15px;
+}
+
+/* Garis di samping kiri judul */
+#schedule h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 4px;
+  height: 80%;
+  background: #004080;
+  border-radius: 2px;
+}
+
+
+/* Style Select Box */
+#kategoriSelect {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#kategoriSelect:focus {
+  border-color: #004080;
+  box-shadow: 0 0 6px rgba(0, 64, 128, 0.4);
+}
+
+/* Responsive Table Container */
+.table-responsive {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+
 
 
     /* Hero */
