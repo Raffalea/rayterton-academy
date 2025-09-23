@@ -55,7 +55,7 @@ header("Pragma: no-cache");
     }
 
     /* Appbar */
-    .appbar {
+    /* .appbar {
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -103,7 +103,144 @@ header("Pragma: no-cache");
 
     .btn-cta:hover {
       background: var(--brand-dark)
+    } */
+
+    /* Appbar */
+    .appbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(8px);
+      background: rgba(255, 255, 255, .85);
+      border-bottom: 1px solid rgba(2, 13, 33, .06);
     }
+
+    .appbar li {
+      list-style: none;
+    }
+
+    /* Brand */
+    .brand {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand img {
+      height: 36px;
+      width: auto;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: .2px;
+    }
+
+    /* Nav */
+    .nav-link {
+      font-weight: 600;
+      color: var(--ink) !important;
+      opacity: .85;
+      padding: .5rem 1rem;
+      display: block;
+    }
+
+    .nav-link:hover {
+      opacity: 1;
+    }
+
+    /* CTA Button */
+    .btn-cta {
+      background: var(--brand);
+      color: #fff !important;
+      border: 0;
+      border-radius: 999px;
+      padding: .6rem 1rem;
+      font-weight: 700;
+    }
+
+    .btn-cta:hover {
+      background: var(--brand-dark);
+    }
+
+    /* Hamburger button */
+    .menu-toggle {
+      background: none;
+      border: 0;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    /* Mobile nav */
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      background: #fff;
+      border-top: 1px solid rgba(2, 13, 33, .06);
+    }
+
+    .nav-mobile.show {
+      display: flex;
+    }
+
+    /* --- Flex positioning for logos & nav --- */
+
+    /* Pastikan flex container */
+    .appbar .container {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Default: desktop (≥ 992px) */
+    .menu-toggle {
+      order: 0;
+      margin-right: 8px;
+      /* jarak hamburger dengan logo apps */
+    }
+
+    .brand {
+      order: 1;
+    }
+
+    .nav {
+      order: 2;
+      margin: 0 auto;
+    }
+
+    .logo-academy-header {
+      order: 3;
+      margin-left: auto;
+    }
+
+    /* Mobile (< 992px, saat hamburger muncul) */
+    @media (max-width: 991.98px) {
+      .appbar .container {
+        justify-content: space-between;
+      }
+
+      .menu-toggle {
+        order: 0;
+      }
+
+      .brand {
+        order: 1;
+      }
+
+      .logo-academy-header {
+        order: 2;
+        margin-left: auto;
+      }
+
+      .nav {
+        display: none !important;
+        /* paksa hilang biar gak ganggu */
+      }
+    }
+
+
 
     /* Hero */
     .hero {
@@ -583,118 +720,119 @@ header("Pragma: no-cache");
     }
 
     /* Footer */
-footer.footer .footer-container {
-    max-width: 1380px;  
-    margin: 0 auto;     
-    padding: 0 25px;    
-}
-footer.footer {
-    background-color: #1F2937;
-    color: #ffffff;
-    padding: 80px 0 30px;
-    font-size: 0.95em;
-    position: relative;
-    font-family: 'Poppins', sans-serif;
-}
-
-footer.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: #FACC15;
-}
-
-footer.footer .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-footer.footer .footer-col h3 {
-    color: #ffffff;
-    margin-bottom: 25px;
-    font-size: 1.4em;
-    font-weight: 700;
-    position: relative;
-}
-
-footer.footer .footer-col h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    width: 50px;
-    height: 3px;
-    background-color: #3B82F6;
-}
-
-footer.footer .footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-footer.footer .footer-col ul li {
-    margin-bottom: 12px;
-}
-
-footer.footer .footer-col ul li a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer.footer .footer-col ul li a:hover {
-    color: #3B82F6;
-}
-
-footer.footer .footer-col p {
-    margin: 12px 0;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-footer.footer .footer-col ul li a i {
-    margin-right: 10px;
-}
-
-footer.footer .social-icons {
-    margin-top: 25px;
-    display: flex;
-    gap: 15px;
-}
-
-footer.footer .social-icons a {
-    color: #ffffff;
-    font-size: 1.8em;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-footer.footer .social-icons a:hover {
-    color: #FACC15;
-    transform: translateY(-5px);
-}
-
-footer.footer .footer-bottom {
-    text-align: center;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    footer.footer .footer-container {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 25px;
     }
 
-footer.footer .footer-col {
-    text-align: left;
-}
+    footer.footer {
+      background-color: #1F2937;
+      color: #ffffff;
+      padding: 80px 0 30px;
+      font-size: 0.95em;
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    footer.footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: #FACC15;
+    }
+
+    footer.footer .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    footer.footer .footer-col h3 {
+      color: #ffffff;
+      margin-bottom: 25px;
+      font-size: 1.4em;
+      font-weight: 700;
+      position: relative;
+    }
+
+    footer.footer .footer-col h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 50px;
+      height: 3px;
+      background-color: #3B82F6;
+    }
+
+    footer.footer .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    footer.footer .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    footer.footer .footer-col ul li a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer.footer .footer-col ul li a:hover {
+      color: #3B82F6;
+    }
+
+    footer.footer .footer-col p {
+      margin: 12px 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    footer.footer .footer-col ul li a i {
+      margin-right: 10px;
+    }
+
+    footer.footer .social-icons {
+      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+    }
+
+    footer.footer .social-icons a {
+      color: #ffffff;
+      font-size: 1.8em;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    footer.footer .social-icons a:hover {
+      color: #FACC15;
+      transform: translateY(-5px);
+    }
+
+    footer.footer .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    footer.footer .footer-col {
+      text-align: left;
+    }
   </style>
 </head>
 
 <body>
 
   <!-- Appbar -->
-  <nav class="appbar py-2">
+  <!-- <nav class="appbar py-2">
     <div class="container d-flex align-items-center justify-content-between">
       <a class="brand" href="#top">
         <img src="rayterton-apps-software-logo.png" alt="Rayterton Logo">
@@ -713,7 +851,52 @@ footer.footer .footer-col {
       </a>
     </div>
 
+  </nav> -->
+
+  <!-- Appbar -->
+  <nav class="appbar py-2">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <!-- Hamburger -->
+      <button class="menu-toggle d-lg-none" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <!-- Brand (Apps) -->
+      <a class="brand" href="#top">
+        <img src="rayterton-apps-software-logo.png" alt="Rayterton Logo">
+      </a>
+
+      <!-- Navigation desktop -->
+      <ul class="nav d-none d-lg-flex">
+        <li class="nav-item"><a class="nav-link" href="#kategori">Deskripsi Training</a></li>
+        <li class="nav-item"><a class="nav-link" href="#featured">Kelas Populer</a></li>
+        <li class="nav-item"><a class="nav-link" href="#schedule">Jadwal Terdekat</a></li>
+        <li class="nav-item"><a class="nav-link" href="#register">Registrasi</a></li>
+        <li class="nav-item"><a class="nav-link" href="#register">Join Us as Partners</a></li>
+        <li class="nav-item"><a class="nav-link" href="#register">Join Us as Trainers</a></li>
+      </ul>
+
+      <!-- Academy logo -->
+      <a href="/" class="logo-link logo-academy-header">
+        <img src="rayterton-academy-logo-black.png" alt="Rayterton Academy Logo" class="logo-academy" style="height:48px;width:auto;">
+      </a>
+    </div>
+
+    <!-- Mobile nav -->
+    <ul class="nav-mobile d-lg-none">
+      <li class="nav-item"><a class="nav-link" href="#kategori">Deskripsi Training</a></li>
+      <li class="nav-item"><a class="nav-link" href="#featured">Kelas Populer</a></li>
+      <li class="nav-item"><a class="nav-link" href="#schedule">Jadwal Terdekat</a></li>
+      <li class="nav-item"><a class="nav-link" href="#register">Registrasi</a></li>
+      <li class="nav-item"><a class="nav-link" href="#register">Join Us as Partners</a></li>
+      <li class="nav-item"><a class="nav-link" href="#register">Join Us as Trainers</a></li>
+    </ul>
   </nav>
+
+
+
+
 
   <!-- Hero -->
   <section class="hero" id="top">
@@ -1525,8 +1708,15 @@ footer.footer .footer-col {
     disablePastTrainingButtons();
   </script>
   <script>
+    // buat navbar toggle
+    const toggleBtn = document.querySelector('.menu-toggle');
+    const mobileNav = document.querySelector('.nav-mobile');
 
+    toggleBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
+    });
   </script>
+
 </body>
 
 </html>
