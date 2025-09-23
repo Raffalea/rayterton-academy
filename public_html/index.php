@@ -1279,8 +1279,6 @@ header("Pragma: no-cache");
     }
     // Inisialisasi cardx di dropdown agar hidden saat awal
     document.querySelectorAll('#more-cards .cardx').forEach(card => card.classList.add('hide'));
-    // Inisialisasi cardx di dropdown agar hidden saat awal
-    document.querySelectorAll('#more-cards .cardx').forEach(card => card.classList.add('hide'));
     // Tahun footer
     document.getElementById('y').textContent = new Date().getFullYear();
     // Smooth scroll
