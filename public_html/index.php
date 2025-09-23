@@ -14,6 +14,8 @@ header("Pragma: no-cache");
   <meta name="description" content="Rayterton Academy: IT, Business/Finance/Economy, dan Entrepreneurship/Leadership/Management training. Daftar kelas, jadwal terdekat, dan pendaftaran online.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     :root {
       --brand: #00b4cc;
@@ -581,31 +583,111 @@ header("Pragma: no-cache");
     }
 
     /* Footer */
-    footer {
-      background: #061529;
-      color: #d3e7f0;
-      padding: 40px 0;
-      margin-top: 28px
+footer.footer .footer-container {
+    max-width: 1380px;  
+    margin: 0 auto;     
+    padding: 0 25px;    
+}
+footer.footer {
+    background-color: #1F2937;
+    color: #ffffff;
+    padding: 80px 0 30px;
+    font-size: 0.95em;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+footer.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #FACC15;
+}
+
+footer.footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+footer.footer .footer-col h3 {
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-size: 1.4em;
+    font-weight: 700;
+    position: relative;
+}
+
+footer.footer .footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 3px;
+    background-color: #3B82F6;
+}
+
+footer.footer .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer.footer .footer-col ul li {
+    margin-bottom: 12px;
+}
+
+footer.footer .footer-col ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer.footer .footer-col ul li a:hover {
+    color: #3B82F6;
+}
+
+footer.footer .footer-col p {
+    margin: 12px 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+footer.footer .footer-col ul li a i {
+    margin-right: 10px;
+}
+
+footer.footer .social-icons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+footer.footer .social-icons a {
+    color: #ffffff;
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer.footer .social-icons a:hover {
+    color: #FACC15;
+    transform: translateY(-5px);
+}
+
+footer.footer .footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
     }
 
-    .fbrand {
-      display: flex;
-      gap: 10px;
-      align-items: center
-    }
-
-    .fbrand img {
-      height: 32px
-    }
-
-    .fnav a {
-      color: #d3e7f0;
-      opacity: .9
-    }
-
-    .fnav a:hover {
-      opacity: 1
-    }
+footer.footer .footer-col {
+    text-align: left;
+}
   </style>
 </head>
 
@@ -1227,7 +1309,62 @@ header("Pragma: no-cache");
   </section>
 
   <!-- Footer -->
-  <?php include('./partials/footer.html'); ?>
+  <footer id="contact" class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <h3>Rayterton Profile</h3>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#kategori">Category</a></li>
+            <li>
+              <a href="#description">Deskripsi, Silabus, dan Harga Training</a>
+            </li>
+            <li><a href="#schedule">Jadwal Training Terdekat</a></li>
+            <li><a href="#register">Daftar Training</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h3>Contact Us</h3>
+          <ul>
+            <li>
+              <a href="mailto:info@rayterton.com" target="_blank"><i class="fas fa-envelope"></i> info@rayterton.com</a>
+            </li>
+            <li>
+              <a href="mailto:sales@rayterton.com" target="_blank"><i class="fas fa-envelope"></i>
+                sales@rayterton.com</a>
+            </li>
+            <li>
+              <a href="https://wa.me/6281296150369" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp
+                Indonesia</a>
+            </li>
+            <li>
+              <a href="https://wa.me/6591754449" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Singapore</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col footer-social">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://web.facebook.com/Rayterton/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/rayterton/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/rayterton/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@rayterton.academy" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/channel/UCSeKfTIHAp954bjyuRD6fWw" target="_blank"><i
+                class="fab fa-youtube"></i></a>
+          </div>
+          <p>Menteng Square Office, Tower A, 3rd Floor, Unit AO-09</p>
+
+          <p>Jl Matraman Raya 30E, Central Jakarta, Indonesia</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Rayterton International Solution. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     // // Script untuk menampilkan lebih banyak kelas dengan animasi
