@@ -618,12 +618,12 @@ header("Pragma: no-cache");
         <img src="rayterton-apps-software-logo.png" alt="Rayterton Logo">
       </a>
       <ul class="nav d-none d-md-flex">
-        <li class="nav-item"><a class="nav-link" href="#kategori">Kategori</a></li>
-        <li class="nav-item"><a class="nav-link" href="#featured">Kelas</a></li>
-        <li class="nav-item"><a class="nav-link" href="#schedule">Jadwal</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
-        <li class="nav-item"><a class="nav-link" href="#katalog">Katalog</a></li>
-        <li class="nav-item"><a class="nav-link" href="#register">Daftar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kategori">Deskripsi Training</a></li>
+        <li class="nav-item"><a class="nav-link" href="#featured">Kelas Populer</a></li>
+        <li class="nav-item"><a class="nav-link" href="#schedule">Jadwal Terdekat</a></li>
+        <li class="nav-item"><a class="nav-link" href="#register">Registrasi</a></li>
+        <li class="nav-item"><a class="nav-link" href="#register">Join Us as Partners</a></li>
+        <li class="nav-item"><a class="nav-link" href="#register">Join Us as Trainers</a></li>
       </ul>
 
       <a href="/" class="logo-link logo-academy-header">
@@ -639,7 +639,7 @@ header("Pragma: no-cache");
     <video autoplay muted loop playsinline>
       <source src="assets/video/hero-learning.mp4" type="video/mp4">
     </video>
-    <div class="container content">
+    <div class="container content" id="about">
       <span class="kicker"><i class="bi bi-lightning-charge-fill"></i> 100% Custom-fit Training</span>
       <h1>Level up tim Anda dengan kurikulum praktis yang selaras dengan proyek nyata</h1>
       <p>Rayterton Academy menghadirkan pelatihan intensif untuk IT, Business/Finance/Economy, serta Entrepreneurship, Leadership, dan Management. Kurikulum dapat dikustomisasi agar sesuai kebutuhan perusahaan. Pendaftaran online, jadwal terdekat, dan dukungan pasca kelas tersedia.</p>
