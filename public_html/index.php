@@ -1134,6 +1134,38 @@ header("Pragma: no-cache");
   </section>
 
 
+  <!-- silabus -->
+     <section id="description">
+    <h2>Deskripsi, Silabus, dan Harga Training</h2>
+    <select id="kategoriSelect">
+      <option value="">-- Pilih Kategori --</option>
+      <option value="IT">Information Technology (IT)</option>
+      <option value="BFE">Business, Finance, and Economy (BFE)</option>
+      <option value="ELM">Entrepreneurship, Leadership, and Management (ELM)</option>
+      <option value="MN">Manufacturing (MN)</option>
+      <option value="RT">Retail (RT)</option>
+      <option value="DS"> Distribution (DS)</option>
+      <option value="BN">Banking (BN)</option>
+      <option value="MF">Multifinance (MF)</option>
+      <option value="IN">Insurance (IN)</option>
+      <option value="CFO">CFO - Financial Leadership</option>
+      <option value="CTO">CTO - Technology Strategy</option>
+      <option value="COO">COO - Strategic Operational Excellence</option>
+      <option value="CSO">CSO - Corporate Strategy and Execution</option>
+      <option value="DTO">Digital Transformation Officer</option>
+      <option value="BICS">Business and IT Consulting Skills</option>
+      <option value="DA">Data Analyst - Analytics for Business</option>
+      <option value="RWDS">Data Scientist - Real World Data Science</option>
+      <option value="DEVOPS">DevOps Engineer - CI/CD and Kubernetes</option>
+      <option value="CSEC">Cyber Security Analyst - Threat and Risk Management</option>
+    </select>
+
+    <div class="table-responsive">
+      <div id="tabelContainer"></div>
+    </div>
+  </section>
+
+
   <!-- Schedule -->
   <!-- <section class="section schedule" id="schedule">
     <div class="container">
