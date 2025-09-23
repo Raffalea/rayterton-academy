@@ -522,6 +522,21 @@ header("Pragma: no-cache");
       padding: 10px;
     }
 
+    /* button di jadwal */
+    .cta-button {
+      padding: 6px 12px;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-block;
+      margin: 5px 5px 0 0;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+      background-color: #e60000 !important;
+    }
+
     /* Promo */
     .promo {
       background: #081a36;
@@ -1042,7 +1057,7 @@ header("Pragma: no-cache");
             <!-- <tr>
             <td>IT018</td>
             <td>Flutter, Firebase Mobile App Development<br>
-              <a href="proses_pendaftaran.php?id=IT018&training_date=2025-08-31" class="cta-button">Bayar Sekarang</a>
+              <a href="proses_pendaftaran.php?id=IT018&training_date=2025-09-30" class="cta-button">Bayar Sekarang</a>
             </td>
             <td>IT</td>
             <td>23 Agustus 2025</td>
@@ -1310,7 +1325,42 @@ header("Pragma: no-cache");
   </script>
 
   <script>
+    function disablePastTrainingButtons() {
+      const ctaButtons = document.querySelectorAll('.cta-button');
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
 
+      ctaButtons.forEach(button => {
+        const href = button.getAttribute('href');
+        if (!href) return;
+
+        try {
+          const urlParams = new URLSearchParams(href.split('?')[1]);
+          const trainingDateStr = urlParams.get('training_date');
+
+          if (trainingDateStr) {
+            const dateParts = trainingDateStr.split('-');
+            const year = parseInt(dateParts[0], 10);
+            const month = parseInt(dateParts[1], 10) - 1;
+            const day = parseInt(dateParts[2], 10);
+            const trainingDate = new Date(year, month, day);
+
+            if (trainingDate < today) {
+              button.textContent = 'Fully Booked';
+              button.style.setProperty('background-color', '#007bff', 'important');
+              button.style.cursor = 'not-allowed';
+              button.disabled = true;
+              button.removeAttribute('href');
+            }
+          }
+        } catch (error) {
+          console.error('Gagal memproses tombol dengan href:', href, error);
+        }
+      });
+    }
+
+    // Panggil fungsi untuk memeriksa dan memperbarui tombol
+    disablePastTrainingButtons();
   </script>
 </body>
 
