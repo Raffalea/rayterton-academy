@@ -873,7 +873,7 @@ header("Pragma: no-cache");
         <li class="nav-item"><a class="nav-link" href="#featured">Kelas Populer</a></li>
         <li class="nav-item"><a class="nav-link" href="#schedule">Jadwal Terdekat</a></li>
         <li class="nav-item"><a class="nav-link" href="#register">Registrasi</a></li>
-        <li class="nav-item"><a class="nav-link" href="#register">Join Us as Partners</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://www.rayterton.com/rayterton-partner-landing.php">Join Us as Partners</a></li>
         <li class="nav-item"><a class="nav-link" href="#register">Join Us as Trainers</a></li>
       </ul>
 
