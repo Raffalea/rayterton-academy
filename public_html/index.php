@@ -768,7 +768,8 @@ header("Pragma: no-cache");
     }
 
     /* button di jadwal */
-    .cta-button {
+    .cta-button,
+    .silabus-btn {
       padding: 6px 12px;
       color: white;
       border: none;
@@ -779,7 +780,56 @@ header("Pragma: no-cache");
       display: inline-block;
       margin: 5px 5px 0 0;
       transition: background-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .cta-button {
       background-color: #e60000 !important;
+    }
+
+    .silabus-btn {
+      background-color: #0066cc;
+      display: inline-block;
+      width: auto;
+      margin: 8px 0;
+    }
+
+    .cat-button:hover {
+      background: #e60000;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(183, 5, 0, .28);
+    }
+
+    .silabus-btn:hover {
+      opacity: 0.9;
+    }
+
+    .full-button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+    }
+
+    .whatsapp-btn {
+      padding: 6px 12px;
+      background-color: #0066cc;
+      /* This matches the .cta-button and .silabus-btn */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 12px;
+      display: inline-block;
+      margin: 2px 0;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .whatsapp-btn:hover {
+      opacity: 0.9;
+      background-color: #004c99;
+      /* This matches the hover for .cta-button and .silabus-btn */
     }
 
     /* Promo */
@@ -1258,61 +1308,6 @@ header("Pragma: no-cache");
 
 
   <!-- Schedule -->
-  <!-- <section class="section schedule" id="schedule">
-    <div class="container">
-      <h2>Jadwal Terdekat</h2>
-      <p class="lead">Pilih jadwal atau minta in-house training untuk perusahaan Anda.</p>
-      <div class="row g-3">
-        <div class="col-lg-7">
-          <div class="sch-list">
-            <div class="sch-item">
-              <div class="sch-date">
-                <div class="d">24</div>
-                <div class="m">Okt</div>
-              </div>
-              <div class="sch-title">
-                <div class="t">Data Analytics with Python</div>
-                <div class="s">Online • 2 hari</div>
-              </div>
-              <a href="#register" class="btn-cta">Daftar</a>
-            </div>
-            <div class="sch-item">
-              <div class="sch-date">
-                <div class="d">05</div>
-                <div class="m">Nov</div>
-              </div>
-              <div class="sch-title">
-                <div class="t">IFRS Essentials & Financial Reporting</div>
-                <div class="s">Jakarta • 2 hari</div>
-              </div>
-              <a href="#register" class="btn-cta">Daftar</a>
-            </div>
-            <div class="sch-item">
-              <div class="sch-date">
-                <div class="d">20</div>
-                <div class="m">Nov</div>
-              </div>
-              <div class="sch-title">
-                <div class="t">Cybersecurity Fundamentals</div>
-                <div class="s">Online • 2 hari</div>
-              </div>
-              <a href="#register" class="btn-cta">Daftar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <div class="promo">
-            <div>
-              <div class="big">Promo Partner</div>
-              <div class="desc">Institusi partner mendapatkan diskon hingga 20% dan kelas privat untuk minimal 10 peserta.</div>
-            </div>
-            <a href="#contact" class="btn-ghost">Jadi Partner</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
   <section id="schedule">
     <div class="container">
       <h2>Jadwal Training Terdekat</h2>
